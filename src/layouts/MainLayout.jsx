@@ -1,7 +1,15 @@
-import React from "react";
+import { Outlet } from "react-router-dom";
+
+import BarOverlay from "../pages/BarOverlay";
 
 const MainLayout = () => {
-  return <div>MainLayout</div>;
+  return (
+    <>
+      <BarOverlay>
+        <Outlet />
+      </BarOverlay>
+    </>
+  );
 };
 
 export default MainLayout;

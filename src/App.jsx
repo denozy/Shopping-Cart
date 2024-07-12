@@ -14,11 +14,9 @@ import NotFoundPage from "./pages/NotFoundPage";
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<NotFoundPage />}>
-        <Route index element={<HomePage />} /> //index is route element that
-        displays when no other child is selected. default.
-        <Route path="*" element={<NotFoundPage />} /> //i think this makes it so
-        any page thats not the listed as child goes here.
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     )
   );

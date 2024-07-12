@@ -1,0 +1,9 @@
+.sidebarCartContainer {
+  border: 1px solid red;
+  position: fixed;
+  top: 5rem;
+  right: 0px;
+  height: 80vh;
+  padding: 1rem;
+  width: 15vw;
+}
