@@ -1,7 +1,8 @@
 import React from "react";
+import GamesContainer from "../components/GamesContainer";
 
 const HomePage = () => {
-  return <div>HomePage</div>;
+  return <GamesContainer />;
 };
 
 export default HomePage;
