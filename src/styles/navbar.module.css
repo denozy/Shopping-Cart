@@ -14,12 +14,11 @@
 }
 
 .navItem {
-  display: flex;
+  align-items: center;
 }
 
 .mainLink {
   display: flex;
-  flex-shrink: 0;
 }
 
 .iconImage {
@@ -28,28 +27,36 @@
 }
 
 .titleLogo {
-  color: white; /* text-white */
-  font-size: 1.5rem; /* text-2xl, 2xl is typically 1.5rem */
-  font-weight: bold; /* font-bold */
-  margin-left: 0.5rem; /* ml-2, 2 is typically 0.5rem */
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-left: 0.5rem;
+  align-content: center;
+  text-wrap: nowrap;
+}
+
+.searchContainer {
+  flex-shrink: 3;
 }
 
 .headerInput {
   width: 50vw;
-  max-width: 600px; /* Limit maximum width of the input */
+  max-width: 600px;
   border-radius: 1rem;
   outline: none;
-  padding: 6px 6px 6px 36px;
+  padding: 10px 10px 10px 36px;
+  background-color: var(--hover-color);
+  border: none;
   background-image: url(../assets/searchIcon.png);
-  background-size: 20px; /* Adjust icon size */
+  background-size: 20px;
   background-repeat: no-repeat;
-  background-position: left 10px center; /* Adjust icon position */
+  background-position: left 10px center;
 }
 
 .isActive {
   background-color: var(--isActive-color);
   color: white;
-  border-radius: 0.375rem; /* Tailwind's medium border radius */
+  border-radius: 0.375rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   padding-top: 0.5rem;
@@ -96,6 +103,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.cartIcon {
+  font-size: 25px;
+  margin-left: -8px;
 }
 
 @media (max-width: 768px) {

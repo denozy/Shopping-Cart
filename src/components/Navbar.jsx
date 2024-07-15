@@ -23,7 +23,7 @@ const Navbar = ({ toggleCart, cartVisibility, buttonRef }) => {
               <span className={styles.titleLogo}>Games up</span>
             </NavLink>
           </div>
-          <div className={styles.navItem}>
+          <div className={`${styles.navItem} ${styles.searchContainer}`}>
             <form className={styles.headerForm}>
               <input
                 className={styles.headerInput}
@@ -45,13 +45,16 @@ const Navbar = ({ toggleCart, cartVisibility, buttonRef }) => {
                 Library
               </NavLink>
             </div>
-            <div className={styles.link}>
+            <div className={`${styles.link} ${styles.cartIcon} `}>
               <button
                 ref={buttonRef}
                 onClick={toggleCart}
                 className={styles.toggleCartButton}
               >
-                <NavLink to="/cart" className={linkClass}>
+                <NavLink
+                  to="/cart"
+                  className={`${linkClass} ${styles.cartIcon}`}
+                >
                   {cartVisibility ? (
                     <TbShoppingCartX />
                   ) : (

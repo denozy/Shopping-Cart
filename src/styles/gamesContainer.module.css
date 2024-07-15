@@ -1,5 +1,15 @@
 .gamesContainer {
   flex: 8;
-  margin-left: 15vw;
+  margin-left: 15rem;
   padding: 1rem;
+  flex-wrap: wrap;
+  text-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  /* md:block */
+  .gamesContainer {
+    margin-left: 0;
+    padding: 2rem;
+  }
 }
