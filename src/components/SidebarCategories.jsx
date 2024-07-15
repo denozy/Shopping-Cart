@@ -4,17 +4,99 @@ import styles from "../styles/sidebarCategories.module.css";
 const SidebarCategories = () => {
   return (
     <div className={styles.sidebarContainer}>
-      <ul>
-        <li className={styles.test}>stuff</li>
-        <li>stuff</li>
-        <li>stuff</li>
-        <li>stuff</li>
-        <li>stuff</li>
-        <li>stuff</li>
-        <li>stuff</li>
-        <li>stuff</li>
-        <li>stuff</li>
-      </ul>
+      <section>
+        <ul className={styles.sidebarList}>
+          <li className={styles.sidebarListItem}>
+            stuffffffffffffffffffffffffffffffff
+          </li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+          <li className={styles.sidebarListItem}>stuff</li>
+        </ul>
+      </section>
     </div>
   );
 };

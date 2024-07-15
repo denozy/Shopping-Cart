@@ -18,7 +18,9 @@ const BarOverlay = () => {
         toggleCart={toggleCart}
         setCartVisibility={setCartVisibility}
       />
-      <SidebarCategories />
+      <div>
+        <SidebarCategories />
+      </div>
       <SidebarCart
         buttonRef={buttonRef}
         cartVisibility={cartVisibility}

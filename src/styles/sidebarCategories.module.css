@@ -1,7 +1,22 @@
 .sidebarContainer {
   display: flex;
   flex-direction: column;
+  position: fixed; /* Changed from sticky to fixed */
+  top: 5rem;
+  left: 0; /* Adjust as needed to place the sidebar correctly */
   border: solid red 1px;
   width: 15vw;
-  flex-grow: 1;
+  flex-grow: 0; /* Ensure it doesn't grow beyond its width */
+  flex-shrink: 0; /* Ensure it doesn't shrink */
+  flex-basis: auto; /* Ensure it uses the specified width */
+  height: 100vh; /* Ensure it takes full height of the viewport */
+  overflow-y: auto; /* Enable scrolling if needed */
+  display: none; /* hidden */
+}
+
+@media (min-width: 768px) {
+  /* md:block */
+  .sidebarContainer {
+    display: block; /* Changes display to block on medium screens and up */
+  }
 }

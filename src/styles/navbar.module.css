@@ -1,0 +1,114 @@
+.navBar {
+  background-color: indigo;
+  border-bottom-width: 1px;
+  border-color: rgb(99 102 241 / #6366f1);
+}
+
+.navDiv {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0.5rem; /* px-2 */
+  padding-right: 0.5rem; /* px-2 */
+  height: 5rem;
+  align-items: center;
+}
+
+.navItem {
+  display: flex;
+}
+
+.mainLink {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.iconImage {
+  height: 2.5rem;
+  width: auto;
+}
+
+.titleLogo {
+  color: white; /* text-white */
+  font-size: 1.5rem; /* text-2xl, 2xl is typically 1.5rem */
+  font-weight: bold; /* font-bold */
+  margin-left: 0.5rem; /* ml-2, 2 is typically 0.5rem */
+}
+
+.headerInput {
+  width: 50vw;
+  max-width: 600px; /* Limit maximum width of the input */
+  border-radius: 1rem;
+  outline: none;
+  padding: 6px 6px 6px 36px;
+  background-image: url(../assets/searchIcon.png);
+  background-size: 20px; /* Adjust icon size */
+  background-repeat: no-repeat;
+  background-position: left 10px center; /* Adjust icon position */
+}
+
+.isActive {
+  background-color: var(--isActive-color);
+  color: white;
+  border-radius: 0.375rem; /* Tailwind's medium border radius */
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.isActive:hover {
+  background-color: var(--hover-color); /* Tailwind's gray-900 color */
+  color: white; /* Keeps text color white on hover */
+}
+
+.isNotActive {
+  color: white;
+  border-radius: 0.375rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.isNotActive:hover {
+  background-color: var(--hover-color);
+  color: white;
+}
+
+.toggleCartButton {
+  font-size: 1.5rem; /* Adjust font size to match other elements */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  background: none; /* Remove default button styling */
+  color: inherit; /* Inherit text color */
+  cursor: pointer;
+}
+
+.linkContainer {
+  display: flex;
+  gap: 1em;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .navDiv {
+    flex-direction: column; /* Stack items vertically */
+    height: auto; /* Let the height adjust based on content */
+    align-items: center; /* Align items to the start of the container */
+    padding: 0.5rem; /* Adjust padding for spacing */
+    gap: 1rem;
+  }
+
+  .headerInput {
+    width: 100%; /* Full width on smaller screens */
+    max-width: none; /* Remove max-width restriction */
+  }
+}
