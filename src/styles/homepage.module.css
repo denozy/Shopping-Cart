@@ -4,3 +4,19 @@
   flex-grow: 1;
   gap: 1rem;
 }
+.outletContainer {
+  flex: 8;
+  margin-left: 15rem;
+  padding: 1rem;
+  flex-wrap: wrap;
+  text-wrap: wrap;
+  z-index: 99999;
+}
+
+@media (max-width: 768px) {
+  /* md:block */
+  .outletContainer {
+    margin-left: 0;
+    padding: 2rem;
+  }
+}

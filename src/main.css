@@ -3,12 +3,29 @@
 :root {
   --hover-color: #111827;
   --isActive-color: black;
+  --sidebar-background-color: rgba(0, 0, 0, 0.523);
+  --hover-background-color: #eb8d12f7;
+  --text-color: whitesmoke;
+  --hover-text-color: rgba(255, 255, 255, 0.712);
+  --logo-color: whitesmoke;
+  --graident-color-1: rgba(0, 0, 0, 1);
+  --graident-color-2: #390b5c;
+  --graident-color-3: #2e5c0b;
+  --accent-color-1: #eb8d12f7;
 }
 
 html,
 body {
   height: 100%;
-  font-family: Roboto, sans-serif;
+  font-family: Roboto, sans-serif, arial, Geneva, Verdana;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    var(--graident-color-1) 50%,
+    var(--graident-color-2) 100%
+  );
+
+  color: var(--text-color);
 }
 
 #root {

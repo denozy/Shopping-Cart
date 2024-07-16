@@ -1,15 +1,13 @@
 .navBar {
-  background-color: indigo;
-  border-bottom-width: 1px;
-  border-color: rgb(99 102 241 / #6366f1);
 }
 
 .navDiv {
+  margin: 0 1.5rem;
   display: flex;
   justify-content: space-between;
-  padding-left: 0.5rem; /* px-2 */
-  padding-right: 0.5rem; /* px-2 */
-  height: 5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  height: 10rem;
   align-items: center;
 }
 
@@ -22,13 +20,14 @@
 }
 
 .iconImage {
-  height: 2.5rem;
+  height: 5rem;
   width: auto;
+  margin-right: 10px;
 }
 
 .titleLogo {
-  color: white;
-  font-size: 1.5rem;
+  color: var(--logo-color);
+  font-size: 3rem;
   font-weight: bold;
   margin-left: 0.5rem;
   align-content: center;
@@ -41,60 +40,53 @@
 
 .headerInput {
   width: 50vw;
-  max-width: 600px;
+  max-width: 800px;
   border-radius: 1rem;
   outline: none;
-  padding: 10px 10px 10px 36px;
+  padding: 10px 10px 10px 46px;
   background-color: var(--hover-color);
   border: none;
   background-image: url(../assets/searchIcon.png);
-  background-size: 20px;
+  background-size: 25px;
   background-repeat: no-repeat;
-  background-position: left 10px center;
+  background-position: left 5px center;
+  color: whitesmoke;
+  font-size: 1.5rem;
 }
 
 .isActive {
   background-color: var(--isActive-color);
   color: white;
   border-radius: 0.375rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
 }
 
 .isActive:hover {
-  background-color: var(--hover-color); /* Tailwind's gray-900 color */
-  color: white; /* Keeps text color white on hover */
+  background-color: var(--hover-background-color);
+  color: white;
 }
 
 .isNotActive {
   color: white;
   border-radius: 0.375rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
 }
 
 .isNotActive:hover {
-  background-color: var(--hover-color);
+  background-color: var(--hover-background-color);
   color: white;
 }
 
 .toggleCartButton {
-  font-size: 1.5rem; /* Adjust font size to match other elements */
+  font-size: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0.5rem 0.75rem;
   border: none;
-  background: none; /* Remove default button styling */
-  color: inherit; /* Inherit text color */
+  color: inherit;
   cursor: pointer;
 }
 
-.linkContainer {
+.linksContainer {
   display: flex;
   gap: 1em;
 }
@@ -106,21 +98,34 @@
 }
 
 .cartIcon {
-  font-size: 25px;
+  font-size: 35px;
   margin-left: -8px;
+  color: black;
+}
+
+.isActive,
+.isNotActive {
+  padding: 10px;
+  font-size: 1.5rem;
+}
+
+hr {
+  width: 60%;
+  margin-bottom: 15px;
+  border-color: var(--accent-color-1);
 }
 
 @media (max-width: 768px) {
   .navDiv {
-    flex-direction: column; /* Stack items vertically */
-    height: auto; /* Let the height adjust based on content */
-    align-items: center; /* Align items to the start of the container */
-    padding: 0.5rem; /* Adjust padding for spacing */
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    padding: 0.5rem;
     gap: 1rem;
   }
 
   .headerInput {
-    width: 100%; /* Full width on smaller screens */
-    max-width: none; /* Remove max-width restriction */
+    width: 100%;
+    max-width: none;
   }
 }

@@ -1,10 +1,13 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
 import styles from "../styles/navbar.module.css";
 import { TbShoppingCartPlus } from "react-icons/tb";
 import { TbShoppingCartX } from "react-icons/tb";
 
-const Navbar = ({ toggleCart, cartVisibility, buttonRef }) => {
+const Navbar = ({ toggleCart, cartVisibility, buttonRef, signIn }) => {
+  const loggedIn = ({ signIn }) =>
+    signIn ? styles.isSignedIn : styles.isNotSignedIn;
   const linkClass = ({ isActive }) =>
     isActive ? styles.isActive : styles.isNotActive;
 
@@ -34,10 +37,15 @@ const Navbar = ({ toggleCart, cartVisibility, buttonRef }) => {
             </form>
           </div>
 
-          <div className={styles.linkContainer}>
+          <div className={styles.linksContainer}>
             <div className={styles.link}>
               <NavLink to="/" className={linkClass}>
                 Home
+              </NavLink>
+            </div>
+            <div className={styles.link}>
+              <NavLink to="/account" className={linkClass}>
+                {signIn ? "Account" : "Sign In"}
               </NavLink>
             </div>
             <div className={styles.link}>

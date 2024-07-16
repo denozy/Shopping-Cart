@@ -2,14 +2,13 @@
   border: 1px solid red;
   position: fixed;
   top: 5rem;
-  right: 0; /* Adjusted for transform */
+  right: 0;
   height: 80vh;
   padding: 1rem;
   width: 15vw;
   transition: transform 0.3s ease-in-out;
-  will-change: transform; /* Optimizes performance */
-  background: white; /* Ensure background for readability */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional shadow for visibility */
+  will-change: transform;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .open {
