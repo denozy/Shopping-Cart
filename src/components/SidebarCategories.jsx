@@ -28,7 +28,7 @@ const SidebarCategories = ({ signIn }) => {
           </li>
           <li className={styles.sectionHeader}>
             <NavLink
-              className={styles.sideBarLink}
+              className={styles.sectionHeader}
               to={signIn ? "wishlist" : "account"}
             >
               {signIn ? "Wishlist" : "Sign In"}
@@ -108,7 +108,7 @@ const SidebarCategories = ({ signIn }) => {
             <li className={styles.sidebarListItem}>FPS</li>
           </div>
           <div className={styles.listItemContainer}>
-            <img className={styles.linkIcon} src={star}></img>
+            <img className={styles.linkIcon} src={school}></img>
             <li className={styles.sidebarListItem}>Puzzle</li>
           </div>
           <div className={styles.listItemContainer}>

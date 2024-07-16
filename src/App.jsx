@@ -10,6 +10,9 @@ import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/HomePage";
 import AccountPage from "./pages/AccountPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import WishlistPage from "./pages/WishlistPage";
+import LibraryPage from "./pages/LibraryPage";
+import CheckoutPage from "./pages/CheckoutPage";
 
 const App = () => {
   const [signIn, setSignIn] = useState(false);
@@ -22,6 +25,9 @@ const App = () => {
           path="/account"
           element={<AccountPage signIn={signIn} setSignIn={setSignIn} />}
         />
+        <Route path="/wishlist" element={<WishlistPage />} />
+        <Route path="/library" element={<LibraryPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     )

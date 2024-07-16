@@ -5,7 +5,7 @@
   width: 20rem;
   flex-shrink: 0;
   flex-basis: auto;
-  height: 100vh;
+  height: calc(100% - 10rem);
   overflow-y: auto; /* enables scrolling */
   padding: 2rem;
   border-radius: 1rem;

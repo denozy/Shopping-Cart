@@ -8,24 +8,29 @@
   --text-color: whitesmoke;
   --hover-text-color: rgba(255, 255, 255, 0.712);
   --logo-color: whitesmoke;
-  --graident-color-1: rgba(0, 0, 0, 1);
-  --graident-color-2: #390b5c;
-  --graident-color-3: #2e5c0b;
+  --gradient-color-1: rgba(0, 0, 0, 1);
+  --gradient-color-2: #390b5c;
+  --gradient-color-3: #2e5c0b;
   --accent-color-1: #eb8d12f7;
 }
-
-html,
-body {
+html {
   height: 100%;
-  font-family: Roboto, sans-serif, arial, Geneva, Verdana;
-  background: rgb(0, 0, 0);
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Roboto, sans-serif, Arial, Geneva, Verdana;
   background: linear-gradient(
     0deg,
-    var(--graident-color-1) 50%,
-    var(--graident-color-2) 100%
+    var(--gradient-color-1) 50%,
+    var(--gradient-color-2) 100%
   );
-
+  background-attachment: fixed;
   color: var(--text-color);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 #root {

@@ -59,16 +59,7 @@ const Navbar = ({ toggleCart, cartVisibility, buttonRef, signIn }) => {
                 onClick={toggleCart}
                 className={styles.toggleCartButton}
               >
-                <NavLink
-                  to="/cart"
-                  className={`${linkClass} ${styles.cartIcon}`}
-                >
-                  {cartVisibility ? (
-                    <TbShoppingCartX />
-                  ) : (
-                    <TbShoppingCartPlus />
-                  )}
-                </NavLink>
+                {cartVisibility ? <TbShoppingCartX /> : <TbShoppingCartPlus />}
               </button>
             </div>
           </div>

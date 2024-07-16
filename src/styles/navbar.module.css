@@ -43,7 +43,7 @@
   max-width: 800px;
   border-radius: 1rem;
   outline: none;
-  padding: 10px 10px 10px 46px;
+  padding: 6px 6px 6px 36px;
   background-color: var(--hover-color);
   border: none;
   background-image: url(../assets/searchIcon.png);
