@@ -20,11 +20,17 @@
   margin-bottom: 1rem;
 }
 .sectionHeader {
-  font-size: 2rem;
+  font-size: var(--fs-large);
+  will-change: transform;
+}
+
+.sidebarNav > .sectionHeader:hover {
+  transform: translateX(5px);
+  pointer-events: auto;
 }
 
 .sectionSubHeader {
-  font-size: 1.8rem;
+  font-size: var(--fs-medium);
 }
 
 .listItemContainer {
@@ -39,7 +45,7 @@
 }
 
 .sidebarListItem {
-  font-size: 1.5rem;
+  font-size: var(--fs-medium);
   border-radius: 1rem;
   padding: 4px;
 }

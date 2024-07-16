@@ -48,11 +48,7 @@ const Navbar = ({ toggleCart, cartVisibility, buttonRef, signIn }) => {
                 {signIn ? "Account" : "Sign In"}
               </NavLink>
             </div>
-            <div className={styles.link}>
-              <NavLink to="/library" className={linkClass}>
-                Library
-              </NavLink>
-            </div>
+
             <div className={`${styles.link} ${styles.cartIcon} `}>
               <button
                 ref={buttonRef}

@@ -1,6 +1,5 @@
 import React from "react";
 import { useEffect, useRef } from "react";
-import classNames from "classnames";
 import styles from "../styles/sidebarCart.module.css";
 
 const SidebarCart = ({ cartVisibility, setCartVisibility, buttonRef }) => {
@@ -37,7 +36,13 @@ const SidebarCart = ({ cartVisibility, setCartVisibility, buttonRef }) => {
         cartVisibility ? styles.open : styles.closed
       }`}
     >
-      SidebarCart
+      <header>Cart</header>
+      <ul>
+        <div className={styles.listItemContainer}>
+          <li className={styles.listItem}>dummy</li>
+          <button>X</button>
+        </div>
+      </ul>
     </div>
   );
 };

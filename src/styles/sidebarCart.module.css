@@ -1,5 +1,4 @@
 .sidebarCartContainer {
-  border: 1px solid red;
   position: fixed;
   top: 8rem;
   right: 0;
@@ -9,6 +8,12 @@
   transition: transform 0.3s ease-in-out;
   will-change: transform;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 200;
+  background-color: var(--cart-bg-color);
+  border-radius: 2rem;
+  color: black;
+  font-size: var(--fs-sidebar);
+  box-shadow: 2px 2px 3px 6px black;
 }
 
 .open {
