@@ -7,6 +7,7 @@
 .headerContent {
   display: flex;
   justify-content: space-between;
+  margin: var(--outlet-margin);
 }
 .displayIconContainer {
   display: flex;
@@ -25,12 +26,12 @@
 .gameCard {
   display: flex;
   flex-direction: column;
-  background-color: rgba(172, 122, 68, 0.369);
+  background-color: var(--gamecard-color);
   border: 1px solid red;
-  height: 400px;
-  width: 300px;
+  height: auto;
+  width: 375px;
   border-radius: 10px;
-  margin: 0.5rem;
+  margin: var(--outlet-margin);
 }
 .gameImg {
 }
@@ -39,10 +40,11 @@
   padding: 0 10px;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--outlet-gap);
 }
 .consoleIconContainer {
   display: flex;
+  margin-top: 10px;
 }
 .consoleIcon {
   height: 25px;
@@ -54,27 +56,29 @@
 
 .cartBtnContainer {
   display: flex;
-  gap: 5px;
+  gap: 10px;
 }
 
 .cardBtn {
-  border-radius: 3px;
-  padding: 3px;
+  border-radius: 5px;
+  padding: 6px;
   font-weight: 500;
-  background: rgba(0, 0, 0, 1);
+  background: var(--cardBtn-bg-color);
   border: none;
   color: white;
   cursor: pointer;
   font-size: 1rem;
   letter-spacing: 1px;
+  transition: transform 0.3s ease;
 }
 
 .cardBtn:hover {
-  background: radial-gradient(
-    circle,
-    rgba(0, 0, 0, 1) 26%,
-    rgba(85, 54, 8, 1) 100%
+  background: linear-gradient(
+    180deg,
+    var(--cardBtn-btn-color-1) 26%,
+    var(--cardBtn-btn-color-2) 100%
   );
+  transform: scale(1.1);
 }
 .cardInfoContainer {
   display: flex;
@@ -87,8 +91,10 @@
 
 .cardInfoContainer > hr {
   width: 100%;
+  margin-top: -10px;
 }
 
 .cardInfoText {
   font-size: 1em;
+  margin-bottom: 10px;
 }

@@ -12,6 +12,12 @@
   --gradient-color-2: #390b5c;
   --gradient-color-3: #2e5c0b;
   --accent-color-1: #eb8d12f7;
+  --gamecard-color: #c8c39a41;
+  --cardBtn-bg-color: black;
+  --cardBtn-btn-color-1: rgba(0, 0, 0, 1);
+  --cardBtn-btn-color-2: rgba(85, 54, 8, 1);
+  --outlet-margin: 0.5rem;
+  --outlet-gap: 0.5rem;
 }
 html {
   height: 100%;

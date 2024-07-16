@@ -21,7 +21,7 @@ const SidebarCategories = ({ signIn }) => {
     <div className={styles.sidebarContainer}>
       <ul className={styles.sidebarList}>
         <div className={styles.sidebarNav}>
-          <li className={styles.sidebarListItem}>
+          <li className={styles.sectionHeader}>
             <NavLink to="/" className={styles.sectionHeader}>
               Home
             </NavLink>
