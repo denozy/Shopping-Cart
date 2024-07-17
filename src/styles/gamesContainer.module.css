@@ -46,7 +46,7 @@
   width: 325px;
   border-radius: 10px;
   margin: var(--outlet-margin);
-  box-shadow: 3px 3px 5px var(--boxshadow-gamecard);
+  /* box-shadow: 3px 3px 5px var(--boxshadow-gamecard); */
   will-change: transform;
 }
 

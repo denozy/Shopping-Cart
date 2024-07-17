@@ -2,12 +2,12 @@
   position: fixed;
   top: 10rem;
   left: 0;
-  width: 20rem;
+  width: 15rem;
   flex-shrink: 0;
   flex-basis: auto;
   height: calc(100% - 10rem);
   overflow-y: auto; /* enables scrolling */
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 1rem;
 }
 
@@ -18,6 +18,9 @@
 .sortingItems {
   margin-left: 0.5rem;
   margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 .sectionHeader {
   font-size: var(--fs-large);
@@ -37,11 +40,12 @@
   display: flex;
   cursor: pointer;
   align-items: center;
+  border-radius: 1rem;
+  padding: 0 5px;
 }
 
-.listItemContainer:hover .linkIcon {
-  background-color: rgba(175, 175, 175, 0.592);
-  transition: background-color 0.2s ease;
+.listItemContainer:hover {
+  background-color: var(--list-item-hover-color);
 }
 
 .sidebarListItem {
@@ -59,9 +63,9 @@
   border-radius: 3px;
   z-index: 1;
 }
-.linkIcon:hover {
+/* .linkIcon:hover {
   background-color: rgba(175, 175, 175, 0.592);
-}
+} */
 
 .sidebarContainer {
   scrollbar-width: none;

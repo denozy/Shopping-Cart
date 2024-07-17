@@ -7,13 +7,13 @@ import nintendo from "../assets/nintendo-switch.png";
 import pc from "../assets/pc.png";
 import { NavLink } from "react-router-dom";
 
-const GameCard = ({ games, loading }) => {
+const GameCard = ({ sortedGames, loading }) => {
   if (!loading) {
     return (
       <>
         {" "}
         {/* start card */}
-        {games.map((game) => (
+        {sortedGames.map((game) => (
           <div key={game.id} className={styles.gameCard}>
             <img
               className={styles.gameImg}
@@ -22,39 +22,40 @@ const GameCard = ({ games, loading }) => {
             />
             <div className={styles.gameDetailsContainer}>
               <div className={styles.consoleIconContainer}>
-                {game.parent_platforms.map((platform) => {
-                  let iconSrc;
-                  let iconAlt = "";
+                {game.parent_platforms &&
+                  game.parent_platforms.map((platform) => {
+                    let iconSrc;
+                    let iconAlt = "";
 
-                  switch (platform.platform.id) {
-                    case 1:
-                      iconSrc = pc;
-                      iconAlt = "Pc icon";
-                      break;
-                    case 2:
-                      iconSrc = playstation;
-                      iconAlt = "playStation icon";
-                      break;
-                    case 7:
-                      iconSrc = nintendo;
-                      iconAlt = "nintendo icon";
-                      break;
-                    case 3:
-                      iconSrc = xbox;
-                      iconAlt = "Xbox icon";
-                      break;
-                    default:
-                      return null;
-                  }
-                  return (
-                    <img
-                      className={styles.consoleIcon}
-                      src={iconSrc}
-                      alt={iconAlt}
-                      key={platform.platform.id}
-                    />
-                  );
-                })}
+                    switch (platform.platform.id) {
+                      case 1:
+                        iconSrc = pc;
+                        iconAlt = "Pc icon";
+                        break;
+                      case 2:
+                        iconSrc = playstation;
+                        iconAlt = "playStation icon";
+                        break;
+                      case 7:
+                        iconSrc = nintendo;
+                        iconAlt = "nintendo icon";
+                        break;
+                      case 3:
+                        iconSrc = xbox;
+                        iconAlt = "Xbox icon";
+                        break;
+                      default:
+                        return null;
+                    }
+                    return (
+                      <img
+                        className={styles.consoleIcon}
+                        src={iconSrc}
+                        alt={iconAlt}
+                        key={platform.platform.id}
+                      />
+                    );
+                  })}
               </div>
               <NavLink>
                 <h2 className={styles.gameTitle}>{game.name}</h2>

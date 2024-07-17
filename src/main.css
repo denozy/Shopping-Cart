@@ -25,6 +25,7 @@
   --fs-giant: 4rem;
   --boxshadow-gamecard: #eb8d12c0;
   --cart-bg-color: rgb(198, 197, 191);
+  --list-item-hover-color: #c8c39a41;
 }
 html {
   height: 100%;

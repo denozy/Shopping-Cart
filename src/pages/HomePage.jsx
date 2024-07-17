@@ -1,9 +1,9 @@
 import GamesContainer from "../components/GamesContainer";
 
-const HomePage = ({ games, loading }) => {
+const HomePage = ({ loading, sortedGames }) => {
   return (
     <>
-      <GamesContainer games={games} loading={loading} />
+      <GamesContainer sortedGames={sortedGames} loading={loading} />
     </>
   );
 };

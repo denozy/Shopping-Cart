@@ -4,8 +4,9 @@ import smartphone from "../assets/smartphone.png";
 import layout from "../assets/layout.png";
 import { NavLink } from "react-router-dom";
 import GameCard from "./GameCard";
+import { useEffect } from "react";
 
-const GamesContainer = ({ games, loading }) => {
+const GamesContainer = ({ sortedGames, loading }) => {
   return (
     <>
       <div className={styles.gamesContainer}>
@@ -28,7 +29,7 @@ const GamesContainer = ({ games, loading }) => {
           </div>
         </header>
         <div className={styles.gameCards}>
-          <GameCard loading={loading} games={games} />
+          <GameCard sortedGames={sortedGames} loading={loading} />
         </div>
       </div>
     </>

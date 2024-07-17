@@ -38,27 +38,25 @@ const SidebarCategories = ({ signIn }) => {
 
         <li className={styles.sectionHeader}>Sort by</li>
         <hr />
-        <li className={styles.sectionSubHeader}>Popular</li>
         <div className={styles.sortingItems}>
-          <div className={styles.listItemContainer}>
-            <img className={styles.linkIcon} src={trophy}></img>
-            <li className={styles.sidebarListItem}>Editors Picks</li>
-          </div>
           <div className={styles.listItemContainer}>
             <img className={styles.linkIcon} src={star}></img>
             <li className={styles.sidebarListItem}>Highest Rated</li>
           </div>
-          <div className={styles.listItemContainer}>
-            <img className={styles.linkIcon} src={trending}></img>
-            <li className={styles.sidebarListItem}>Trending</li>
-          </div>
+
           <div className={styles.listItemContainer}>
             <img className={styles.linkIcon} src={calendar}></img>
             <li className={styles.sidebarListItem}>Release Date</li>
           </div>
-        </div>
 
-        <li className={styles.sectionSubHeader}>Platform</li>
+          <div className={styles.listItemContainer}>
+            <img className={styles.linkIcon} src={trophy}></img>
+            <li className={styles.sidebarListItem}>User Reviews</li>
+          </div>
+        </div>
+        <li className={styles.sectionHeader}>Categories</li>
+        <hr />
+        <li className={styles.sectionSubHeader}>Platforms</li>
         <div className={styles.sortingItems}>
           <div className={styles.listItemContainer}>
             <img className={styles.linkIcon} src={joystick}></img>

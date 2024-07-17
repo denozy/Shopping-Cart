@@ -15,13 +15,17 @@ import CheckoutPage from "./pages/CheckoutPage";
 
 const App = () => {
   const [games, setGames] = useState([]);
+  const [sortedGames, setSortedGames] = useState([]);
   const [signIn, setSignIn] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
+  const [cart, setCart] = useState([]);
+  const [wishlist, setWishlist] = useState([]);
   const apiKey = import.meta.env.VITE_API_KEY;
 
   useEffect(() => {
     const fetchGames = async () => {
-      const apiUrl = `https://api.rawg.io/api/games?key=${apiKey}&page_size=2&search=skyrim`;
+      const apiUrl = `https://api.rawg.io/api/games?key=${apiKey}&page_size=15&search_precise=true&search=zelda`;
       setLoading(true);
       try {
         const res = await fetch(apiUrl);
@@ -39,10 +43,23 @@ const App = () => {
     fetchGames();
   }, []);
 
+  //sorts games in descending order based on suggestions_count
+  useEffect(() => {
+    // Sorting and filtering combined
+    const sortedFilteredGames = [...games]
+      .filter((game) => game.reviews_count >= 40)
+      .sort((a, b) => b.suggestions_count - a.suggestions_count);
+
+    setSortedGames(sortedFilteredGames);
+  }, [games]);
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<MainLayout signIn={signIn} />}>
-        <Route index element={<HomePage loading={loading} games={games} />} />
+        <Route
+          index
+          element={<HomePage loading={loading} sortedGames={sortedGames} />}
+        />
         <Route
           path="/account"
           element={<AccountPage signIn={signIn} setSignIn={setSignIn} />}
