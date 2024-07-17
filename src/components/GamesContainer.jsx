@@ -29,12 +29,16 @@ const GamesContainer = ({ cart, setCart, sortedGames, loading }) => {
           </div>
         </header>
         <div className={styles.gameCards}>
-          <GameCard
-            cart={cart}
-            setCart={setCart}
-            sortedGames={sortedGames}
-            loading={loading}
-          />
+          {loading
+            ? "Loading..."
+            : sortedGames.map((game) => (
+                <GameCard
+                  key={game.id}
+                  cart={cart}
+                  setCart={setCart}
+                  game={game}
+                />
+              ))}
         </div>
       </div>
     </>

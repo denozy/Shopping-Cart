@@ -6,7 +6,7 @@ import SidebarCategories from "../components/SidebarCategories";
 import { useRef, useState } from "react";
 import styles from "../styles/homepage.module.css";
 
-const MainLayout = ({ signIn }) => {
+const MainLayout = ({ signIn, cart, setCart }) => {
   const [cartVisibility, setCartVisibility] = useState(false);
 
   const buttonRef = useRef(null);
@@ -31,6 +31,8 @@ const MainLayout = ({ signIn }) => {
         </div>
       </div>
       <SidebarCart
+        cart={cart}
+        setCart={setCart}
         buttonRef={buttonRef}
         cartVisibility={cartVisibility}
         setCartVisibility={setCartVisibility}

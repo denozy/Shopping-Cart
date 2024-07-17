@@ -31,9 +31,7 @@ const App = () => {
       try {
         const res = await fetch(apiUrl);
         const data = await res.json();
-        console.log(data.results[0].parent_platforms[0]);
         setGames(data.results);
-        console.log(data.results);
       } catch (error) {
         console.log("Error fetching data", error);
       } finally {
@@ -70,7 +68,10 @@ const App = () => {
 
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<MainLayout signIn={signIn} />}>
+      <Route
+        path="/"
+        element={<MainLayout cart={cart} setCart={setCart} signIn={signIn} />}
+      >
         <Route
           index
           element={

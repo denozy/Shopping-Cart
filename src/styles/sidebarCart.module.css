@@ -4,16 +4,22 @@
   right: 0;
   height: 80vh;
   padding: 1rem;
-  width: 15vw;
+  width: 20vw;
   transition: transform 0.3s ease-in-out;
   will-change: transform;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   z-index: 200;
-  background-color: var(--cart-bg-color);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    var(--gradient-color-1) 50%,
+    var(--gradient-color-2) 100%
+  );
   border-radius: 2rem;
   color: black;
-  font-size: var(--fs-sidebar);
-  box-shadow: 2px 2px 3px 6px black;
+  box-shadow: 2px 2px 3px 6px #000000;
+  font-size: var(--fs-medium);
+  color: var(--text-color);
 }
 
 .open {
@@ -22,4 +28,98 @@
 
 .closed {
   transform: translateX(100%);
+}
+
+.cartHeader {
+  text-align: center;
+  font-size: var(--fs-large);
+  margin-bottom: 15px;
+}
+
+.cartContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 70%;
+}
+.listItemContainer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+  padding: 3px;
+  border-radius: 0.5rem;
+}
+.listItemContainer:hover {
+  background-color: var(--list-item-hover-color);
+}
+
+.wishlistBtn {
+  background-color: var(--gradient-color-3);
+  border: none;
+  border-radius: 3px;
+  padding: 2px;
+}
+.cartIcon {
+  height: 20px;
+  width: auto;
+  padding: 0;
+  filter: invert(1);
+  border: none;
+  background-color: none;
+  cursor: pointer;
+}
+.listItem {
+}
+.deleteBtn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  background-color: red;
+}
+.transactionContainer {
+}
+
+.priceContainer {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--fs-small);
+}
+
+.checkoutContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  gap: 8px;
+}
+
+.checkoutBtn,
+.ctnShoppingBtn {
+  border-radius: 1rem;
+  border: none;
+  font-size: var(--fs-small);
+  cursor: pointer;
+  padding: 3px;
+  font-family: roboto, sans-serif;
+  font-weight: 500;
+  color: whitesmoke;
+}
+
+.checkoutBtn {
+  background-color: var(--gradient-color-3);
+}
+
+.ctnShoppingBtn {
+  background-color: rgb(47, 45, 45);
+}
+
+.ctnShoppingBtn:hover {
+  filter: brightness(130%);
+}
+
+.checkoutBtn:hover {
+  filter: brightness(150%);
 }
