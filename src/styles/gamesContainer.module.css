@@ -86,9 +86,21 @@
 
 .cartBtnContainer {
   display: flex;
+  justify-content: space-between;
+}
+.priceContainer {
+  display: flex;
+  align-items: center;
+  background-color: var(--cardBtn-bg-color);
+  font-size: var(--fs-small);
+  border-radius: 5px;
+  padding: 6px;
+  font-weight: 500;
+}
+.cartBtns {
+  display: flex;
   gap: 10px;
 }
-
 .cardBtn {
   border-radius: 5px;
   padding: 6px;

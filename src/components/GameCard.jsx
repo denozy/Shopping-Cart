@@ -7,7 +7,18 @@ import nintendo from "../assets/nintendo-switch.png";
 import pc from "../assets/pc.png";
 import { NavLink } from "react-router-dom";
 
-const GameCard = ({ sortedGames, loading }) => {
+const GameCard = ({ cart, setCart, sortedGames, loading }) => {
+  const getPrice = (game) => {
+    const price = (
+      ((game.suggestions_count / game.reviews_count) * 1000) %
+      50
+    ).toFixed(2);
+    return price;
+  };
+
+  const addToCart = (game) => {
+    setCart([...cart, game]);
+  };
   if (!loading) {
     return (
       <>
@@ -61,8 +72,20 @@ const GameCard = ({ sortedGames, loading }) => {
                 <h2 className={styles.gameTitle}>{game.name}</h2>
               </NavLink>
               <div className={styles.cartBtnContainer}>
-                <button className={styles.cardBtn}>Cart</button>
-                <button className={styles.cardBtn}>Wishlist</button>
+                <div className={styles.priceContainer}>
+                  <p>Price: {getPrice(game)}</p>
+                </div>
+                <div className={styles.cartBtns}>
+                  {" "}
+                  <button
+                    value={game}
+                    onClick={(e) => addToCart(e.target.value)}
+                    className={styles.cardBtn}
+                  >
+                    Cart
+                  </button>
+                  <button className={styles.cardBtn}>Wishlist</button>
+                </div>
               </div>
               <div className={styles.cardInfoContainer}>
                 <div className={styles.cardInfo}>

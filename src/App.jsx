@@ -16,6 +16,7 @@ import CheckoutPage from "./pages/CheckoutPage";
 const App = () => {
   const [games, setGames] = useState([]);
   const [sortedGames, setSortedGames] = useState([]);
+  const [outletHeader, setOutletHeader] = useState("");
   const [signIn, setSignIn] = useState(false);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
@@ -25,7 +26,7 @@ const App = () => {
 
   useEffect(() => {
     const fetchGames = async () => {
-      const apiUrl = `https://api.rawg.io/api/games?key=${apiKey}&page_size=15&search_precise=true&search=zelda`;
+      const apiUrl = `https://api.rawg.io/api/games?key=${apiKey}&page_size=15`;
       setLoading(true);
       try {
         const res = await fetch(apiUrl);
@@ -53,12 +54,33 @@ const App = () => {
     setSortedGames(sortedFilteredGames);
   }, [games]);
 
+  useEffect(() => {
+    // const storedCart = localStorage.getItem("myCart");
+    // if (storedCart) {
+    //   setCart(JSON.parse(storedCart));
+    // }
+    console.log(cart);
+  }, [cart]);
+
+  const saveCart = () => {
+    const cartToStore = { key: "value" };
+    localStorage.setItem("myCart", json.stringify(cartToStore));
+    setCart(cartToStore);
+  };
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<MainLayout signIn={signIn} />}>
         <Route
           index
-          element={<HomePage loading={loading} sortedGames={sortedGames} />}
+          element={
+            <HomePage
+              cart={cart}
+              setCart={setCart}
+              loading={loading}
+              sortedGames={sortedGames}
+            />
+          }
         />
         <Route
           path="/account"
