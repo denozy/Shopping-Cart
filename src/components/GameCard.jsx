@@ -78,13 +78,17 @@ const GameCard = ({ cart, setCart, sortedGames, loading }) => {
                 <div className={styles.cartBtns}>
                   {" "}
                   <button
-                    value={game}
-                    onClick={(e) => addToCart(e.target.value)}
+                    onClick={() => addToCart(game)}
                     className={styles.cardBtn}
                   >
                     Cart
                   </button>
-                  <button className={styles.cardBtn}>Wishlist</button>
+                  <button
+                    onClick={() => console.log(game)}
+                    className={styles.cardBtn}
+                  >
+                    Wishlist
+                  </button>
                 </div>
               </div>
               <div className={styles.cardInfoContainer}>
