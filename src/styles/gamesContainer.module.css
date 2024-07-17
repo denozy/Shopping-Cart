@@ -51,7 +51,7 @@
 }
 
 .gameCard:hover {
-  transform: translateY(-15px);
+  transform: scale(1.02);
   transition: transform 0.1s ease-out;
   box-shadow: 4px 4px 8px var(--boxshadow-gamecard);
 }

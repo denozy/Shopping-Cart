@@ -42,7 +42,7 @@ const SidebarCategories = ({ signIn }) => {
         <div className={styles.sortingItems}>
           <div className={styles.listItemContainer}>
             <img className={styles.linkIcon} src={trophy}></img>
-            <li className={styles.sidebarListItem}>Top Sellers</li>
+            <li className={styles.sidebarListItem}>Editors Picks</li>
           </div>
           <div className={styles.listItemContainer}>
             <img className={styles.linkIcon} src={star}></img>

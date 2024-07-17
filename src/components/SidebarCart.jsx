@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 import styles from "../styles/sidebarCart.module.css";
+import heartplus from "../assets/heart_plus.png";
 
 const SidebarCart = ({ cartVisibility, setCartVisibility, buttonRef }) => {
   const sidebarRef = useRef(null);
@@ -39,6 +40,9 @@ const SidebarCart = ({ cartVisibility, setCartVisibility, buttonRef }) => {
       <header>Cart</header>
       <ul>
         <div className={styles.listItemContainer}>
+          <button>
+            <img src={heartplus} alt="" />
+          </button>
           <li className={styles.listItem}>dummy</li>
           <button>X</button>
         </div>

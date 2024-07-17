@@ -4,6 +4,7 @@ import placeholder from "../assets/star.png";
 import playstation from "../assets/playstation.png";
 import xbox from "../assets/xbox.png";
 import nintendo from "../assets/nintendo-switch.png";
+import pc from "../assets/pc.png";
 import { NavLink } from "react-router-dom";
 
 const GameCard = ({ games, loading }) => {
@@ -21,9 +22,39 @@ const GameCard = ({ games, loading }) => {
             />
             <div className={styles.gameDetailsContainer}>
               <div className={styles.consoleIconContainer}>
-                <img className={styles.consoleIcon} src={playstation} alt="" />
-                <img className={styles.consoleIcon} src={xbox} alt="" />
-                <img className={styles.consoleIcon} src={nintendo} alt="" />
+                {game.parent_platforms.map((platform) => {
+                  let iconSrc;
+                  let iconAlt = "";
+
+                  switch (platform.platform.id) {
+                    case 1:
+                      iconSrc = pc;
+                      iconAlt = "Pc icon";
+                      break;
+                    case 2:
+                      iconSrc = playstation;
+                      iconAlt = "playStation icon";
+                      break;
+                    case 7:
+                      iconSrc = nintendo;
+                      iconAlt = "nintendo icon";
+                      break;
+                    case 3:
+                      iconSrc = xbox;
+                      iconAlt = "Xbox icon";
+                      break;
+                    default:
+                      return null;
+                  }
+                  return (
+                    <img
+                      className={styles.consoleIcon}
+                      src={iconSrc}
+                      alt={iconAlt}
+                      key={platform.platform.id}
+                    />
+                  );
+                })}
               </div>
               <NavLink>
                 <h2 className={styles.gameTitle}>{game.name}</h2>
@@ -41,7 +72,9 @@ const GameCard = ({ games, loading }) => {
 
                 <div className={styles.cardInfo}>
                   <p className={styles.cardInfoText}>Genres:</p>
-                  <p className={styles.cardInfoText}>{game.genres[0].name}</p>
+                  <p className={styles.cardInfoText}>
+                    {game.genres.length > 0 ? game.genres[0].name : "Unlisted"}
+                  </p>
                 </div>
                 <hr></hr>
 

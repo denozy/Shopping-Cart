@@ -11,7 +11,7 @@ const GamesContainer = ({ games, loading }) => {
       <div className={styles.gamesContainer}>
         <header>
           <div className={styles.headerContent}>
-            <h1>Popular: All Time</h1>
+            <h1>Editors Picks</h1>
             <div className={styles.displayIconContainer}>
               <p>Display options:</p>
               <img

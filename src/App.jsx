@@ -21,13 +21,14 @@ const App = () => {
 
   useEffect(() => {
     const fetchGames = async () => {
-      const apiUrl = `https://api.rawg.io/api/games?key=${apiKey}&page_size=4`;
+      const apiUrl = `https://api.rawg.io/api/games?key=${apiKey}&page_size=2&search=skyrim`;
       setLoading(true);
       try {
         const res = await fetch(apiUrl);
         const data = await res.json();
-        console.log(data);
+        console.log(data.results[0].parent_platforms[0]);
         setGames(data.results);
+        console.log(data.results);
       } catch (error) {
         console.log("Error fetching data", error);
       } finally {
