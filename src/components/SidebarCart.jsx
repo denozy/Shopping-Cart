@@ -61,7 +61,13 @@ const SidebarCart = ({
         cartVisibility ? styles.open : styles.closed
       }`}
     >
-      <header className={styles.cartHeader}>Your Cart</header>
+      <header className={styles.cartHeader}>
+        {" "}
+        <div className={styles.subtotalContainer}>
+          <p>Subtotal:</p>
+          <p>{total}</p>
+        </div>
+      </header>
       <div className={styles.cartContainer}>
         <ul>
           {cart.map((game) => (
@@ -69,25 +75,15 @@ const SidebarCart = ({
           ))}
         </ul>
       </div>
-      <div className={styles.transactionContainer}>
-        <ul>
-          <div className={styles.priceContainer}>
-            <li>Subtotal:</li>
-            <li>{total}</li>
-          </div>
-          <div className={styles.priceContainer}>
-            <li>Est. Tax:</li>
-            <li>{tax}</li>
-          </div>
-          <div className={styles.priceContainer}>
-            <li>Total:</li>
-            <li>{grandTotal}</li>
-          </div>
-        </ul>
-      </div>
+
       <div className={styles.checkoutContainer}>
         <button className={styles.checkoutBtn}>Checkout</button>
-        <button className={styles.ctnShoppingBtn}>Continue Shopping</button>
+        <button
+          onClick={() => setCartVisibility(false)}
+          className={styles.ctnShoppingBtn}
+        >
+          Continue Shopping
+        </button>
       </div>
     </div>
   );

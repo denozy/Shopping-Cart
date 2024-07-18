@@ -9,16 +9,10 @@
   will-change: transform;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   z-index: 200;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    var(--gradient-color-1) 50%,
-    var(--gradient-color-2) 100%
-  );
+  background-color: rgb(37, 34, 34);
   border-radius: 2rem;
   color: black;
-  box-shadow: 2px 2px 3px 6px #000000;
-  font-size: var(--fs-medium);
+  font-size: var(--fs-small);
   color: var(--text-color);
 }
 
@@ -32,41 +26,64 @@
 
 .cartHeader {
   text-align: center;
-  font-size: var(--fs-large);
   margin-bottom: 15px;
+}
+.subtotalContainer {
+  display: flex;
+  flex-direction: column;
 }
 
 .cartContainer {
   display: flex;
   flex-direction: column;
   align-content: space-between;
-  height: 70%;
+  height: 80%;
 }
 .listItemContainer {
   display: flex;
   justify-content: space-between;
+  padding: 3px;
+
+  border-bottom: 2px solid var(--accent-color-1);
+  margin-bottom: 10px;
 }
+
+.listItemContainer:hover {
+  background-color: var(--list-item-hover-color);
+  border-radius: 0.5rem;
+}
+
 .listItem {
   display: flex;
   gap: 10px;
   align-items: center;
   cursor: pointer;
-  padding: 3px;
-  border-radius: 0.5rem;
-}
-.listItem:hover {
-  background-color: var(--list-item-hover-color);
+
+  width: 75%;
+  height: auto;
 }
 
-.wishlistBtn {
-  background-color: var(--gradient-color-3);
-  border: none;
-  border-radius: 3px;
-  padding: 2px;
+.cartItemContainer {
+  display: flex;
+  gap: 10px;
 }
-.wishlistBtn:hover {
-  filter: brightness(150%);
+
+.cartItemContainer > li {
+  display: flex;
+  align-items: center;
 }
+
+.cartGameImg {
+  height: 50px;
+  width: auto;
+}
+.cartItemBtnContainer {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  gap: 5px;
+}
+
 .cartIcon {
   height: 20px;
   width: auto;
@@ -76,27 +93,35 @@
   background-color: none;
   cursor: pointer;
 }
-.listItem {
-}
-.deleteBtn {
-  width: 20px;
-  height: 20px;
+
+.wishlistBtn {
+  background-color: var(--gradient-color-3);
   border: none;
   cursor: pointer;
-  border-radius: 3px;
-  padding: 2px;
-  background-color: red;
+}
+.wishlistBtn:hover {
+  filter: brightness(150%);
+}
+
+.deleteBtn {
+  border: none;
+  cursor: pointer;
+
+  background-color: rgb(219, 28, 2);
 }
 .deleteBtn:hover {
   background-color: rgb(230, 87, 87);
 }
 .transactionContainer {
 }
+.priceSide {
+  display: flex;
+  align-items: center;
+}
 
 .priceContainer {
   display: flex;
   justify-content: space-between;
-  font-size: var(--fs-small);
 }
 
 .checkoutContainer {
@@ -114,7 +139,6 @@
   cursor: pointer;
   padding: 3px;
   font-family: roboto, sans-serif;
-  font-weight: 500;
   color: whitesmoke;
 }
 
