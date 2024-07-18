@@ -22,6 +22,7 @@ const App = () => {
   const [search, setSearch] = useState("");
   const [cart, setCart] = useState([]);
   const [wishlist, setWishlist] = useState([]);
+  const [total, setTotal] = useState(0);
   const apiKey = import.meta.env.VITE_API_KEY;
 
   useEffect(() => {
@@ -70,7 +71,15 @@ const App = () => {
     createRoutesFromElements(
       <Route
         path="/"
-        element={<MainLayout cart={cart} setCart={setCart} signIn={signIn} />}
+        element={
+          <MainLayout
+            total={total}
+            setTotal={setTotal}
+            cart={cart}
+            setCart={setCart}
+            signIn={signIn}
+          />
+        }
       >
         <Route
           index
@@ -88,7 +97,10 @@ const App = () => {
           element={<AccountPage signIn={signIn} setSignIn={setSignIn} />}
         />
         <Route path="/wishlist" element={<WishlistPage />} />
-        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route
+          path="/checkout"
+          element={<CheckoutPage total={total} setTotal={setTotal} />}
+        />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     )

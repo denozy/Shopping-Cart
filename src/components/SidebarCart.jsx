@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 import styles from "../styles/sidebarCart.module.css";
-import heartplus from "../assets/heart_plus.png";
 import CartItem from "./CartItem";
 
 const SidebarCart = ({
@@ -10,6 +9,8 @@ const SidebarCart = ({
   cartVisibility,
   setCartVisibility,
   buttonRef,
+  total,
+  setTotal,
 }) => {
   const sidebarRef = useRef(null);
 
@@ -37,6 +38,22 @@ const SidebarCart = ({
     };
   }, [sidebarRef, buttonRef]);
 
+  const getPrice = (game) => {
+    const price = (
+      ((game.suggestions_count / game.reviews_count) * 1000) %
+      50
+    ).toFixed(2);
+    return parseFloat(price);
+  };
+
+  useEffect(() => {
+    const total = cart.map(getPrice).reduce((acc, price) => acc + price, 0);
+    setTotal(total);
+  }, [cart]);
+
+  const tax = parseFloat((total * 0.07).toFixed(2));
+  const grandTotal = total + tax;
+
   return (
     <div
       ref={sidebarRef}
@@ -47,27 +64,24 @@ const SidebarCart = ({
       <header className={styles.cartHeader}>Your Cart</header>
       <div className={styles.cartContainer}>
         <ul>
-          {cart.map((item) => (
-            <CartItem item={item} />
+          {cart.map((game) => (
+            <CartItem key={game.id} game={game} />
           ))}
-          {/* cart item start */}
-
-          {/* cart item end */}
         </ul>
       </div>
       <div className={styles.transactionContainer}>
         <ul>
           <div className={styles.priceContainer}>
             <li>Subtotal:</li>
-            <li>Prices</li>
+            <li>{total}</li>
           </div>
           <div className={styles.priceContainer}>
             <li>Est. Tax:</li>
-            <li>Prices</li>
+            <li>{tax}</li>
           </div>
           <div className={styles.priceContainer}>
             <li>Total:</li>
-            <li>Prices</li>
+            <li>{grandTotal}</li>
           </div>
         </ul>
       </div>
