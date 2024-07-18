@@ -3,15 +3,7 @@ import styles from "../styles/sidebarCart.module.css";
 import heartplus from "../assets/heart_plus.png";
 import trash from "../assets/delete.png";
 
-const CartItem = ({ deleteItem, game }) => {
-  const getPrice = (game) => {
-    const price = (
-      ((game.suggestions_count / game.reviews_count) * 1000) %
-      50
-    ).toFixed(2);
-    return price;
-  };
-
+const CartItem = ({ getPrice, deleteItem, game }) => {
   return (
     <>
       <div key={game.id} className={styles.listItemContainer}>

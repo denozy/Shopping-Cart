@@ -16,6 +16,7 @@ const MainLayout = ({
   setCart,
   setTerm,
   setSortTerm,
+  getPrice,
 }) => {
   const [cartVisibility, setCartVisibility] = useState(false);
 
@@ -51,6 +52,7 @@ const MainLayout = ({
         setCartVisibility={setCartVisibility}
         total={total}
         setTotal={setTotal}
+        getPrice={getPrice}
       />
     </>
   );

@@ -23,17 +23,20 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [term, setTerm] = useState("legend of zelda");
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const storedCart = localStorage.getItem("myCart");
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
   const [wishlist, setWishlist] = useState([]);
   const [total, setTotal] = useState(0);
   const apiKey = import.meta.env.VITE_API_KEY;
+  const gameUrl = `https://api.rawg.io/api/games?key=${apiKey}&search=${term}&page_size=30`;
 
   useEffect(() => {
     const fetchGames = async () => {
-      const apiUrl = `https://api.rawg.io/api/games?key=${apiKey}&search=${term}&page_size=30`;
       setLoading(true);
       try {
-        const res = await fetch(apiUrl);
+        const res = await fetch(gameUrl);
         const data = await res.json();
         setGames(data.results);
         console.log(data.results);
@@ -71,17 +74,37 @@ const App = () => {
   }, [filteredGames, sortTerm]);
 
   useEffect(() => {
-    // const storedCart = localStorage.getItem("myCart");
-    // if (storedCart) {
-    //   setCart(JSON.parse(storedCart));
-    // }
-    console.log(cart);
+    switch (sortTerm) {
+      case "released":
+        setOutletHeader("Released Date");
+        break;
+      case "rating":
+        setOutletHeader("Highest Rated");
+        break;
+      case "added":
+        setOutletHeader("User Favorites");
+        break;
+      default:
+        setOutletHeader("Games");
+    }
+  }, [sortTerm]);
+
+  useEffect(() => {
+    console.log("Cart state changed:", cart);
+    localStorage.setItem("myCart", JSON.stringify(cart));
   }, [cart]);
 
-  const saveCart = () => {
-    const cartToStore = { key: "value" };
-    localStorage.setItem("myCart", json.stringify(cartToStore));
-    setCart(cartToStore);
+  const getPrice = (game) => {
+    const ratio = (game.suggestions_count / game.reviews_count) * 1000;
+    const scaledPrice = (ratio % 40) + 20;
+
+    const decimalPoints = [0.0, 0.39, 0.49, 0.99];
+    const randomDecimal =
+      decimalPoints[Math.floor(Math.random() * decimalPoints.length)];
+
+    const adjustedPrice = Math.floor(scaledPrice) + randomDecimal;
+
+    return adjustedPrice.toFixed(2);
   };
 
   const router = createBrowserRouter(
@@ -99,6 +122,7 @@ const App = () => {
             setSearch={setSearch}
             setTerm={setTerm}
             setSortTerm={setSortTerm}
+            getPrice={getPrice}
           />
         }
       >
@@ -110,6 +134,8 @@ const App = () => {
               setCart={setCart}
               loading={loading}
               sortedGames={sortedGames}
+              outletHeader={outletHeader}
+              getPrice={getPrice}
             />
           }
         />

@@ -5,15 +5,7 @@ import nintendo from "../assets/nintendo-switch.png";
 import pc from "../assets/pc.png";
 import { NavLink } from "react-router-dom";
 
-const GameCard = ({ cart, setCart, game }) => {
-  const getPrice = (game) => {
-    const price = (
-      ((game.suggestions_count / game.reviews_count) * 1000) %
-      50
-    ).toFixed(2);
-    return price;
-  };
-
+const GameCard = ({ cart, setCart, game, getPrice }) => {
   const addToCart = (game) => {
     setCart([...cart, game]);
   };

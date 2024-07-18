@@ -6,13 +6,20 @@ import { NavLink } from "react-router-dom";
 import GameCard from "./GameCard";
 import { useEffect } from "react";
 
-const GamesContainer = ({ cart, setCart, sortedGames, loading }) => {
+const GamesContainer = ({
+  outletHeader,
+  cart,
+  setCart,
+  sortedGames,
+  loading,
+  getPrice,
+}) => {
   return (
     <>
       <div className={styles.gamesContainer}>
         <header>
           <div className={styles.headerContent}>
-            <h1>Editors Picks</h1>
+            <h1>{outletHeader}</h1>
             <div className={styles.displayIconContainer}>
               <p>Display options:</p>
               <img
@@ -37,6 +44,7 @@ const GamesContainer = ({ cart, setCart, sortedGames, loading }) => {
                   cart={cart}
                   setCart={setCart}
                   game={game}
+                  getPrice={getPrice}
                 />
               ))}
         </div>

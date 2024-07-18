@@ -1,6 +1,13 @@
 import GamesContainer from "../components/GamesContainer";
 
-const HomePage = ({ cart, setCart, loading, sortedGames }) => {
+const HomePage = ({
+  getPrice,
+  cart,
+  setCart,
+  loading,
+  sortedGames,
+  outletHeader,
+}) => {
   return (
     <>
       <GamesContainer
@@ -8,6 +15,8 @@ const HomePage = ({ cart, setCart, loading, sortedGames }) => {
         setCart={setCart}
         sortedGames={sortedGames}
         loading={loading}
+        outletHeader={outletHeader}
+        getPrice={getPrice}
       />
     </>
   );

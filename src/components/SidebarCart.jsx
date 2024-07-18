@@ -12,6 +12,7 @@ const SidebarCart = ({
   buttonRef,
   total,
   setTotal,
+  getPrice,
 }) => {
   const sidebarRef = useRef(null);
 
@@ -38,14 +39,6 @@ const SidebarCart = ({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [sidebarRef, buttonRef]);
-
-  const getPrice = (game) => {
-    const price = (
-      ((game.suggestions_count / game.reviews_count) * 1000) %
-      50
-    ).toFixed(2);
-    return parseFloat(price);
-  };
 
   useEffect(() => {
     const total = cart.map(getPrice).reduce((acc, price) => acc + price, 0);
@@ -83,7 +76,12 @@ const SidebarCart = ({
       <div className={styles.cartContainer}>
         <ul>
           {cart.map((game) => (
-            <CartItem key={game.id} deleteItem={deleteItem} game={game} />
+            <CartItem
+              getPrice={getPrice}
+              key={game.id}
+              deleteItem={deleteItem}
+              game={game}
+            />
           ))}
         </ul>
       </div>
