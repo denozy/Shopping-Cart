@@ -15,8 +15,9 @@ import CheckoutPage from "./pages/CheckoutPage";
 
 const App = () => {
   const [games, setGames] = useState([]);
+  const [filteredGames, setFilteredGames] = useState([]);
   const [sortedGames, setSortedGames] = useState([]);
-  const [sortTerm, setSortTerm] = useState("suggestions_count");
+  const [sortTerm, setSortTerm] = useState("reviews_count");
   const [outletHeader, setOutletHeader] = useState("");
   const [signIn, setSignIn] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -29,12 +30,13 @@ const App = () => {
 
   useEffect(() => {
     const fetchGames = async () => {
-      const apiUrl = `https://api.rawg.io/api/games?key=${apiKey}&search=${term}&page_size=15`;
+      const apiUrl = `https://api.rawg.io/api/games?key=${apiKey}&search=${term}&page_size=30`;
       setLoading(true);
       try {
         const res = await fetch(apiUrl);
         const data = await res.json();
         setGames(data.results);
+        console.log(data.results);
       } catch (error) {
         console.log("Error fetching data", error);
       } finally {
@@ -47,12 +49,26 @@ const App = () => {
 
   //sorts games in descending order based on suggestions_count
   useEffect(() => {
-    const sortedFilteredGames = [...games]
-      .filter((game) => game.reviews_count >= 40)
-      .sort((a, b) => b[sortTerm] - a[sortTerm]);
+    const gamesToFilter = [...games].filter((game) => {
+      const added = parseInt(game.added, 10);
+      const reviews = parseInt(game.reviews_count, 10);
+      return reviews >= 40 && added >= 5;
+    });
+    setFilteredGames(gamesToFilter);
+    console.log(filteredGames);
+  }, [games]);
 
-    setSortedGames(sortedFilteredGames);
-  }, [games, sortTerm]);
+  useEffect(() => {
+    if (sortTerm === "") return;
+    const gamesToSort = [...filteredGames].sort((a, b) => {
+      if (sortTerm === "released") {
+        return new Date(b[sortTerm]) - new Date(a[sortTerm]);
+      }
+      return b[sortTerm] - a[sortTerm];
+    });
+
+    setSortedGames(gamesToSort);
+  }, [filteredGames, sortTerm]);
 
   useEffect(() => {
     // const storedCart = localStorage.getItem("myCart");

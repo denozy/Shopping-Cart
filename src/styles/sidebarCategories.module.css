@@ -22,6 +22,11 @@
   flex-direction: column;
   gap: 5px;
 }
+.sortingItems > button {
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+}
 .sectionHeader {
   font-size: var(--fs-medium);
   will-change: transform;

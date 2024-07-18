@@ -25,7 +25,7 @@ import xbox from "../assets/xbox.png";
 import nintendo from "../assets/nintendo-switch.png";
 import pc from "../assets/pc.png";
 
-const SidebarCategories = ({ signIn }) => {
+const SidebarCategories = ({ setSortTerm, signIn }) => {
   return (
     <div className={styles.sidebarContainer}>
       <ul className={styles.sidebarList}>
@@ -48,20 +48,29 @@ const SidebarCategories = ({ signIn }) => {
         <li className={styles.sectionHeader}>Sort by</li>
         <hr />
         <div className={styles.sortingItems}>
-          <button className={styles.listItemContainer}>
+          <button
+            onClick={() => setSortTerm("rating")}
+            className={styles.listItemContainer}
+          >
             <img className={styles.linkIcon} src={star}></img>
             <li className={styles.sidebarListItem}>Highest Rated</li>
           </button>
 
-          <div className={styles.listItemContainer}>
+          <button
+            onClick={() => setSortTerm("released")}
+            className={styles.listItemContainer}
+          >
             <img className={styles.linkIcon} src={calendar}></img>
             <li className={styles.sidebarListItem}>Release Date</li>
-          </div>
+          </button>
 
-          <div className={styles.listItemContainer}>
+          <button
+            onClick={() => setSortTerm("added")}
+            className={styles.listItemContainer}
+          >
             <img className={styles.linkIcon} src={trophy}></img>
-            <li className={styles.sidebarListItem}>User Reviews</li>
-          </div>
+            <li className={styles.sidebarListItem}>User Favorites</li>
+          </button>
         </div>
         <li className={styles.sectionHeader}>Categories</li>
         <hr />
