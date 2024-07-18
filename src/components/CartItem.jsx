@@ -3,7 +3,7 @@ import styles from "../styles/sidebarCart.module.css";
 import heartplus from "../assets/heart_plus.png";
 import trash from "../assets/delete.png";
 
-const CartItem = ({ game }) => {
+const CartItem = ({ deleteItem, game }) => {
   const getPrice = (game) => {
     const price = (
       ((game.suggestions_count / game.reviews_count) * 1000) %
@@ -24,7 +24,10 @@ const CartItem = ({ game }) => {
                 alt="Save to Wishlist"
               />
             </button>
-            <button className={styles.deleteBtn}>
+            <button
+              onClick={() => deleteItem(game.id)}
+              className={styles.deleteBtn}
+            >
               <img className={styles.cartIcon} src={trash} alt="Delete" />
             </button>
           </div>

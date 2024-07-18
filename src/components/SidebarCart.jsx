@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import styles from "../styles/sidebarCart.module.css";
 import CartItem from "./CartItem";
@@ -54,6 +55,17 @@ const SidebarCart = ({
   const tax = parseFloat((total * 0.07).toFixed(2));
   const grandTotal = total + tax;
 
+  const deleteItem = (id) => {
+    console.log(id);
+    setCart((current) => {
+      return current.filter((game) => game.id !== id);
+    });
+  };
+
+  // useEffect(() => {
+  //   console.log("Cart updated:", cart);
+  // }, [cart]);
+
   return (
     <div
       ref={sidebarRef}
@@ -71,13 +83,15 @@ const SidebarCart = ({
       <div className={styles.cartContainer}>
         <ul>
           {cart.map((game) => (
-            <CartItem key={game.id} game={game} />
+            <CartItem key={game.id} deleteItem={deleteItem} game={game} />
           ))}
         </ul>
       </div>
 
       <div className={styles.checkoutContainer}>
-        <button className={styles.checkoutBtn}>Checkout</button>
+        <button className={styles.checkoutBtn}>
+          <NavLink to={"/checkout"}>Checkout</NavLink>
+        </button>
         <button
           onClick={() => setCartVisibility(false)}
           className={styles.ctnShoppingBtn}

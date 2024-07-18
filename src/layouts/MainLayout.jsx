@@ -6,7 +6,17 @@ import SidebarCategories from "../components/SidebarCategories";
 import { useRef, useState } from "react";
 import styles from "../styles/homepage.module.css";
 
-const MainLayout = ({ total, setTotal, signIn, cart, setCart }) => {
+const MainLayout = ({
+  search,
+  setSearch,
+  total,
+  setTotal,
+  signIn,
+  cart,
+  setCart,
+  setTerm,
+  setSortTerm,
+}) => {
   const [cartVisibility, setCartVisibility] = useState(false);
 
   const buttonRef = useRef(null);
@@ -23,9 +33,12 @@ const MainLayout = ({ total, setTotal, signIn, cart, setCart }) => {
         toggleCart={toggleCart}
         setCartVisibility={setCartVisibility}
         signIn={signIn}
+        search={search}
+        setSearch={setSearch}
+        setTerm={setTerm}
       />
       <div className={styles.mainContainer}>
-        <SidebarCategories signIn={signIn} />
+        <SidebarCategories setSortTerm={setSortTerm} signIn={signIn} />
         <div className={styles.outletContainer}>
           <Outlet />
         </div>

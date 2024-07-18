@@ -16,10 +16,12 @@ import CheckoutPage from "./pages/CheckoutPage";
 const App = () => {
   const [games, setGames] = useState([]);
   const [sortedGames, setSortedGames] = useState([]);
+  const [sortTerm, setSortTerm] = useState("suggestions_count");
   const [outletHeader, setOutletHeader] = useState("");
   const [signIn, setSignIn] = useState(false);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
+  const [term, setTerm] = useState("legend of zelda");
   const [cart, setCart] = useState([]);
   const [wishlist, setWishlist] = useState([]);
   const [total, setTotal] = useState(0);
@@ -27,7 +29,7 @@ const App = () => {
 
   useEffect(() => {
     const fetchGames = async () => {
-      const apiUrl = `https://api.rawg.io/api/games?key=${apiKey}&page_size=15`;
+      const apiUrl = `https://api.rawg.io/api/games?key=${apiKey}&search=${term}&page_size=15`;
       setLoading(true);
       try {
         const res = await fetch(apiUrl);
@@ -41,17 +43,16 @@ const App = () => {
     };
 
     fetchGames();
-  }, []);
+  }, [term]);
 
   //sorts games in descending order based on suggestions_count
   useEffect(() => {
-    // Sorting and filtering combined
     const sortedFilteredGames = [...games]
       .filter((game) => game.reviews_count >= 40)
-      .sort((a, b) => b.suggestions_count - a.suggestions_count);
+      .sort((a, b) => b[sortTerm] - a[sortTerm]);
 
     setSortedGames(sortedFilteredGames);
-  }, [games]);
+  }, [games, sortTerm]);
 
   useEffect(() => {
     // const storedCart = localStorage.getItem("myCart");
@@ -78,6 +79,10 @@ const App = () => {
             cart={cart}
             setCart={setCart}
             signIn={signIn}
+            search={search}
+            setSearch={setSearch}
+            setTerm={setTerm}
+            setSortTerm={setSortTerm}
           />
         }
       >

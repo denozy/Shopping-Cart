@@ -15,6 +15,15 @@ import thumbUp from "../assets/thumb_up.png";
 import trending from "../assets/trending_up.png";
 import trophy from "../assets/trophy.png";
 import calendar from "../assets/calendar.png";
+import explosion from "../assets/explosion.png";
+import flag from "../assets/flag.png";
+import puzzle from "../assets/puzzlepiece.png";
+import sports from "../assets/sports.png";
+
+import playstation from "../assets/playstation.png";
+import xbox from "../assets/xbox.png";
+import nintendo from "../assets/nintendo-switch.png";
+import pc from "../assets/pc.png";
 
 const SidebarCategories = ({ signIn }) => {
   return (
@@ -39,10 +48,10 @@ const SidebarCategories = ({ signIn }) => {
         <li className={styles.sectionHeader}>Sort by</li>
         <hr />
         <div className={styles.sortingItems}>
-          <div className={styles.listItemContainer}>
+          <button className={styles.listItemContainer}>
             <img className={styles.linkIcon} src={star}></img>
             <li className={styles.sidebarListItem}>Highest Rated</li>
-          </div>
+          </button>
 
           <div className={styles.listItemContainer}>
             <img className={styles.linkIcon} src={calendar}></img>
@@ -59,15 +68,27 @@ const SidebarCategories = ({ signIn }) => {
         <li className={styles.sectionSubHeader}>Platforms</li>
         <div className={styles.sortingItems}>
           <div className={styles.listItemContainer}>
-            <img className={styles.linkIcon} src={joystick}></img>
+            <img
+              className={styles.linkIcon}
+              src={nintendo}
+              style={{ filter: "invert(1)", height: "16px" }}
+            ></img>
             <li className={styles.sidebarListItem}>Nintendo</li>
           </div>
           <div className={styles.listItemContainer}>
-            <img className={styles.linkIcon} src={gamepad}></img>
+            <img
+              className={styles.linkIcon}
+              style={{ filter: "invert(1)", height: "18px" }}
+              src={playstation}
+            ></img>
             <li className={styles.sidebarListItem}>PlayStation</li>
           </div>
           <div className={styles.listItemContainer}>
-            <img className={styles.linkIcon} src={controller}></img>
+            <img
+              className={styles.linkIcon}
+              style={{ filter: "invert(1)", height: "15px" }}
+              src={xbox}
+            ></img>
             <li className={styles.sidebarListItem}>Xbox</li>
           </div>
           <div className={styles.listItemContainer}>
@@ -86,35 +107,35 @@ const SidebarCategories = ({ signIn }) => {
         <li className={styles.sectionSubHeader}>Genre</li>
         <div className={styles.sortingItems}>
           <div className={styles.listItemContainer}>
-            <img className={styles.linkIcon} src={star}></img>
+            <img className={styles.linkIcon} src={thumbUp}></img>
             <li className={styles.sidebarListItem}>Free to Play</li>
           </div>
           <div className={styles.listItemContainer}>
-            <img className={styles.linkIcon} src={star}></img>
+            <img className={styles.linkIcon} src={explosion}></img>
             <li className={styles.sidebarListItem}>Action</li>
           </div>
           <div className={styles.listItemContainer}>
-            <img className={styles.linkIcon} src={star}></img>
+            <img className={styles.linkIcon} src={joystick}></img>
             <li className={styles.sidebarListItem}>RPG</li>
           </div>
           <div className={styles.listItemContainer}>
-            <img className={styles.linkIcon} src={star}></img>
+            <img className={styles.linkIcon} src={gamepad}></img>
             <li className={styles.sidebarListItem}>Adventure</li>
           </div>
           <div className={styles.listItemContainer}>
-            <img className={styles.linkIcon} src={star}></img>
+            <img className={styles.linkIcon} src={controller}></img>
             <li className={styles.sidebarListItem}>FPS</li>
           </div>
           <div className={styles.listItemContainer}>
-            <img className={styles.linkIcon} src={school}></img>
+            <img className={styles.linkIcon} src={puzzle}></img>
             <li className={styles.sidebarListItem}>Puzzle</li>
           </div>
           <div className={styles.listItemContainer}>
-            <img className={styles.linkIcon} src={star}></img>
+            <img className={styles.linkIcon} src={flag}></img>
             <li className={styles.sidebarListItem}>Racing</li>
           </div>
           <div className={styles.listItemContainer}>
-            <img className={styles.linkIcon} src={star}></img>
+            <img className={styles.linkIcon} src={sports}></img>
             <li className={styles.sidebarListItem}>Sports</li>
           </div>
         </div>

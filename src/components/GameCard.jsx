@@ -1,6 +1,4 @@
 import styles from "../styles/gamesContainer.module.css";
-import hades from "../assets/hades.png";
-import placeholder from "../assets/star.png";
 import playstation from "../assets/playstation.png";
 import xbox from "../assets/xbox.png";
 import nintendo from "../assets/nintendo-switch.png";
