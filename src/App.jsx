@@ -27,7 +27,10 @@ const App = () => {
     const storedCart = localStorage.getItem("myCart");
     return storedCart ? JSON.parse(storedCart) : [];
   });
-  const [wishlist, setWishlist] = useState([]);
+  const [wishlist, setWishlist] = useState(() => {
+    const storedWishlist = localStorage.getItem("myWishlist");
+    return storedWishlist ? JSON.parse(storedWishlist) : [];
+  });
   const [total, setTotal] = useState(0);
   const apiKey = import.meta.env.VITE_API_KEY;
   const gameUrl = `https://api.rawg.io/api/games?key=${apiKey}&search=${term}&page_size=30`;
@@ -90,9 +93,12 @@ const App = () => {
   }, [sortTerm]);
 
   useEffect(() => {
-    console.log("Cart state changed:", cart);
     localStorage.setItem("myCart", JSON.stringify(cart));
   }, [cart]);
+
+  useEffect(() => {
+    localStorage.setItem("myWishlist", JSON.stringify(wishlist));
+  }, [wishlist]);
 
   const getPrice = (game) => {
     const ratio = (game.suggestions_count / game.reviews_count) * 1000;
@@ -123,6 +129,7 @@ const App = () => {
             setTerm={setTerm}
             setSortTerm={setSortTerm}
             getPrice={getPrice}
+            setWishlist={setWishlist}
           />
         }
       >
@@ -136,6 +143,8 @@ const App = () => {
               sortedGames={sortedGames}
               outletHeader={outletHeader}
               getPrice={getPrice}
+              setWishlist={setWishlist}
+              signIn={signIn}
             />
           }
         />

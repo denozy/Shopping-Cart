@@ -13,6 +13,8 @@ const GamesContainer = ({
   sortedGames,
   loading,
   getPrice,
+  setWishlist,
+  signIn,
 }) => {
   return (
     <>
@@ -45,6 +47,8 @@ const GamesContainer = ({
                   setCart={setCart}
                   game={game}
                   getPrice={getPrice}
+                  setWishlist={setWishlist}
+                  signIn={signIn}
                 />
               ))}
         </div>

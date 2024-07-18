@@ -13,6 +13,8 @@ const SidebarCart = ({
   total,
   setTotal,
   getPrice,
+  setWishlist,
+  signIn,
 }) => {
   const sidebarRef = useRef(null);
 
@@ -81,6 +83,8 @@ const SidebarCart = ({
               key={game.id}
               deleteItem={deleteItem}
               game={game}
+              setWishlist={setWishlist}
+              signIn={signIn}
             />
           ))}
         </ul>

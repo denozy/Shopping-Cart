@@ -7,6 +7,8 @@ const HomePage = ({
   loading,
   sortedGames,
   outletHeader,
+  setWishlist,
+  signIn,
 }) => {
   return (
     <>
@@ -17,6 +19,8 @@ const HomePage = ({
         loading={loading}
         outletHeader={outletHeader}
         getPrice={getPrice}
+        setWishlist={setWishlist}
+        signIn={signIn}
       />
     </>
   );

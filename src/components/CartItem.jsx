@@ -3,19 +3,28 @@ import styles from "../styles/sidebarCart.module.css";
 import heartplus from "../assets/heart_plus.png";
 import trash from "../assets/delete.png";
 
-const CartItem = ({ getPrice, deleteItem, game }) => {
+const CartItem = ({ signIn, getPrice, deleteItem, game, setWishlist }) => {
+  const handleClick = () => {
+    deleteItem;
+  };
   return (
     <>
       <div key={game.id} className={styles.listItemContainer}>
         <div className={styles.listItem}>
           <div className={styles.cartItemBtnContainer}>
-            <button className={styles.wishlistBtn}>
-              <img
-                className={styles.cartIcon}
-                src={heartplus}
-                alt="Save to Wishlist"
-              />
-            </button>
+            {signIn ? (
+              <button className={styles.wishlistBtn}>
+                <img
+                  className={styles.cartIcon}
+                  src={heartplus}
+                  alt="Save to Wishlist"
+                  onClick={() => {
+                    setWishlist(game);
+                    deleteItem(game.id);
+                  }}
+                />
+              </button>
+            ) : null}
             <button
               onClick={() => deleteItem(game.id)}
               className={styles.deleteBtn}
