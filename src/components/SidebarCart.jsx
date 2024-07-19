@@ -13,7 +13,6 @@ const SidebarCart = ({
   total,
   setTotal,
   getPrice,
-  setWishlist,
   signIn,
   addToWishList,
 }) => {
@@ -44,7 +43,9 @@ const SidebarCart = ({
   }, [sidebarRef, buttonRef]);
 
   useEffect(() => {
-    const total = cart.map(getPrice).reduce((acc, price) => acc + price, 0);
+    const total = cart
+      .map(getPrice)
+      .reduce((acc, price) => acc + parseFloat(price), 0);
     setTotal(total);
   }, [cart]);
 
@@ -84,7 +85,6 @@ const SidebarCart = ({
               key={game.id}
               deleteItem={deleteItem}
               game={game}
-              setWishlist={setWishlist}
               signIn={signIn}
               addToWishList={addToWishList}
             />

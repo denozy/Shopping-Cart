@@ -13,6 +13,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import WishlistPage from "./pages/WishlistPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import GamePage from "./pages/GamePage";
+import ErrorModal from "./components/ErrorModal";
 
 const App = () => {
   const [games, setGames] = useState([]);
@@ -33,13 +34,15 @@ const App = () => {
     return storedWishlist ? JSON.parse(storedWishlist) : [];
   });
   const [total, setTotal] = useState(0);
+  const [errorMessage, setErrorMessage] = useState("");
+
   const apiKey = import.meta.env.VITE_API_KEY;
 
   const platformUrl = `https://api.rawg.io/api/parent_platforms/?key=${apiKey}`;
 
-  //search for 30 games based on a search term
+  //search for x games based on a search term
   useEffect(() => {
-    const gamesUrl = `https://api.rawg.io/api/games?key=${apiKey}&search=${term}&page_size=10`;
+    const gamesUrl = `https://api.rawg.io/api/games?key=${apiKey}&search=${term}&page_size=15`;
     const fetchGames = async () => {
       setLoading(true);
       try {
@@ -56,28 +59,6 @@ const App = () => {
 
     fetchGames();
   }, [term]);
-
-  //search for 1 game based on an id
-  // useEffect(() => {
-  //   const oneGameUrl = `https://api.rawg.io/api/games/${gameId}?key=${apiKey}`;
-
-  //   const fetchGame = async () => {
-  //     setLoading(true);
-  //     try {
-  //       const res = await fetch(oneGameUrl);
-  //       const data = await res.json();
-  //       setGame(data);
-  //       console.log(data);
-  //     } catch (error) {
-  //       console.log("Error fetching data", error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-  //   if (gameId) {
-  //     fetchGame();
-  //   }
-  // }, [gameId]);
 
   //sorts games in descending order based on suggestions_count
   useEffect(() => {
@@ -119,22 +100,37 @@ const App = () => {
     }
   }, [sortTerm]);
 
+  //local storage for cart
   useEffect(() => {
     localStorage.setItem("myCart", JSON.stringify(cart));
     console.log(cart);
   }, [cart]);
 
+  //local storage for wishlist
   useEffect(() => {
     localStorage.setItem("myWishlist", JSON.stringify(wishlist));
     console.log(wishlist);
   }, [wishlist]);
 
+  //add to wishlist
   const addToWishList = (game) => {
     setWishlist([...wishlist, game]);
   };
 
+  //add to cart
   const addToCart = (game) => {
+    const isDuplicate = cart.some((item) => item.id === game.id);
+
+    if (isDuplicate) {
+      setErrorMessage("This item is already in your cart.");
+      return;
+    }
+
     setCart([...cart, game]);
+  };
+
+  const handleCloseErrorModal = () => {
+    setErrorMessage("");
   };
 
   //generate a fake price for the game since rawg does not supply price data
@@ -142,11 +138,17 @@ const App = () => {
     const ratio = (game.suggestions_count / game.reviews_count) * 1000;
     const scaledPrice = (ratio % 40) + 20;
 
+    // Use a property of the game to determine the decimal point
     const decimalPoints = [0.0, 0.39, 0.49, 0.99];
-    const randomDecimal =
-      decimalPoints[Math.floor(Math.random() * decimalPoints.length)];
+    const uniqueIdentifier = game.id || game.slug; // Ensure there's a unique identifier
+    const index =
+      uniqueIdentifier
+        .toString()
+        .split("")
+        .reduce((acc, char) => acc + char.charCodeAt(0), 0) %
+      decimalPoints.length;
 
-    const adjustedPrice = Math.floor(scaledPrice) + randomDecimal;
+    const adjustedPrice = Math.floor(scaledPrice) + decimalPoints[index];
 
     return adjustedPrice.toFixed(2);
   };
@@ -206,7 +208,12 @@ const App = () => {
       </Route>
     )
   );
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <RouterProvider router={router} />
+      <ErrorModal message={errorMessage} onClose={handleCloseErrorModal} />
+    </>
+  );
 };
 
 export default App;
