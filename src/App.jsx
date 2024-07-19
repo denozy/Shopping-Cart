@@ -14,6 +14,7 @@ import WishlistPage from "./pages/WishlistPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import GamePage from "./pages/GamePage";
 import ErrorModal from "./components/ErrorModal";
+import PlatformPage from "./pages/PlatformPage";
 
 const App = () => {
   const [games, setGames] = useState([]);
@@ -114,6 +115,12 @@ const App = () => {
 
   //add to wishlist
   const addToWishList = (game) => {
+    const isDuplicate = wishlist.some((item) => item.id === game.id);
+
+    if (isDuplicate) {
+      setErrorMessage("That game is already on your wishlist!");
+      return;
+    }
     setWishlist([...wishlist, game]);
   };
 
@@ -122,18 +129,21 @@ const App = () => {
     const isDuplicate = cart.some((item) => item.id === game.id);
 
     if (isDuplicate) {
-      setErrorMessage("This item is already in your cart.");
+      setErrorMessage(
+        "Duplicate purchasing and gifting is not currently supported"
+      );
       return;
     }
 
     setCart([...cart, game]);
   };
 
+  //reset modal on close
   const handleCloseErrorModal = () => {
     setErrorMessage("");
   };
 
-  //generate a fake price for the game since rawg does not supply price data
+  //generate a fake price for the game(api does not hold price data)
   const getPrice = (game) => {
     const ratio = (game.suggestions_count / game.reviews_count) * 1000;
     const scaledPrice = (ratio % 40) + 20;
@@ -191,6 +201,10 @@ const App = () => {
         <Route
           path="/game/:slug"
           element={<GamePage gamesData={games} apiKey={apiKey} />}
+        />
+        <Route
+          path="/platforms/:platform"
+          element={<PlatformPage apiKey={apiKey} />}
         />
         <Route
           path="/account"

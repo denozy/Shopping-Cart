@@ -72,48 +72,56 @@ const SidebarCategories = ({ setSortTerm, signIn }) => {
             <li className={styles.sidebarListItem}>User Favorites</li>
           </button>
         </div>
-        <li className={styles.sectionHeader}>Categories</li>
-        <hr />
+        {/* <hr />
         <li className={styles.sectionSubHeader}>Platforms</li>
         <div className={styles.sortingItems}>
-          <div className={styles.listItemContainer}>
+          <NavLink
+            to={"/platforms/nintendo"}
+            className={styles.listItemContainer}
+          >
             <img
               className={styles.linkIcon}
               src={nintendo}
               style={{ filter: "invert(1)", height: "16px" }}
             ></img>
             <li className={styles.sidebarListItem}>Nintendo</li>
-          </div>
-          <div className={styles.listItemContainer}>
+          </NavLink>
+          <NavLink
+            to={"/platforms/playstation"}
+            className={styles.listItemContainer}
+          >
             <img
               className={styles.linkIcon}
               style={{ filter: "invert(1)", height: "18px" }}
               src={playstation}
             ></img>
             <li className={styles.sidebarListItem}>PlayStation</li>
-          </div>
-          <div className={styles.listItemContainer}>
+          </NavLink>
+          <NavLink to={"/platforms/xbox"} className={styles.listItemContainer}>
             <img
               className={styles.linkIcon}
               style={{ filter: "invert(1)", height: "15px" }}
               src={xbox}
             ></img>
             <li className={styles.sidebarListItem}>Xbox</li>
-          </div>
-          <div className={styles.listItemContainer}>
+          </NavLink>
+          <NavLink to={"/platforms/pc"} className={styles.listItemContainer}>
             <img className={styles.linkIcon} src={keyboard}></img>
             <li className={styles.sidebarListItem}>PC</li>
-          </div>
-          <div className={styles.listItemContainer}>
+          </NavLink>
+          <NavLink to={"/platforms/ios"} className={styles.listItemContainer}>
             <img className={styles.linkIcon} src={ios}></img>
             <li className={styles.sidebarListItem}>iOS</li>
-          </div>
-          <div className={styles.listItemContainer}>
+          </NavLink>
+          <NavLink
+            to={"/platforms/android"}
+            className={styles.listItemContainer}
+          >
             <img className={styles.linkIcon} src={androidIcon}></img>
             <li className={styles.sidebarListItem}>Android</li>
-          </div>
-        </div>
-        <li className={styles.sectionSubHeader}>Genre</li>
+          </NavLink>
+        </div> */}
+        {/* <li className={styles.sectionSubHeader}>Genre</li>
         <div className={styles.sortingItems}>
           <div className={styles.listItemContainer}>
             <img className={styles.linkIcon} src={thumbUp}></img>
@@ -146,8 +154,8 @@ const SidebarCategories = ({ setSortTerm, signIn }) => {
           <div className={styles.listItemContainer}>
             <img className={styles.linkIcon} src={sports}></img>
             <li className={styles.sidebarListItem}>Sports</li>
-          </div>
-        </div>
+          </div> 
+        </div>*/}
       </ul>
     </div>
   );
