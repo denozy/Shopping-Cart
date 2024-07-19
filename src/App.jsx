@@ -12,6 +12,7 @@ import AccountPage from "./pages/AccountPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import WishlistPage from "./pages/WishlistPage";
 import CheckoutPage from "./pages/CheckoutPage";
+import GamePage from "./pages/GamePage";
 
 const App = () => {
   const [games, setGames] = useState([]);
@@ -64,6 +65,7 @@ const App = () => {
     console.log(filteredGames);
   }, [games]);
 
+  //sort games from newest to oldest based on release date
   useEffect(() => {
     if (sortTerm === "") return;
     const gamesToSort = [...filteredGames].sort((a, b) => {
@@ -76,6 +78,7 @@ const App = () => {
     setSortedGames(gamesToSort);
   }, [filteredGames, sortTerm]);
 
+  //set header based on sort filter choice
   useEffect(() => {
     switch (sortTerm) {
       case "released":
@@ -100,6 +103,7 @@ const App = () => {
     localStorage.setItem("myWishlist", JSON.stringify(wishlist));
   }, [wishlist]);
 
+  //generate a fake price for the game since rawg does not supply price data
   const getPrice = (game) => {
     const ratio = (game.suggestions_count / game.reviews_count) * 1000;
     const scaledPrice = (ratio % 40) + 20;
@@ -148,6 +152,7 @@ const App = () => {
             />
           }
         />
+        <Route path="/game" element={<GamePage />} />
         <Route
           path="/account"
           element={<AccountPage signIn={signIn} setSignIn={setSignIn} />}

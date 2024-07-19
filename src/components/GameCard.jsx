@@ -56,7 +56,7 @@ const GameCard = ({ cart, setCart, game, getPrice, setWishlist, signIn }) => {
                 );
               })}
           </div>
-          <NavLink>
+          <NavLink to={"/game"}>
             <h2 className={styles.gameTitle}>{game.name}</h2>
           </NavLink>
           <div className={styles.cartBtnContainer}>
