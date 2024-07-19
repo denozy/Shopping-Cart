@@ -18,6 +18,7 @@ const MainLayout = ({
   setSortTerm,
   getPrice,
   setWishlist,
+  addToWishList,
 }) => {
   const [cartVisibility, setCartVisibility] = useState(false);
 
@@ -56,6 +57,7 @@ const MainLayout = ({
         getPrice={getPrice}
         setWishlist={setWishlist}
         signIn={signIn}
+        addToWishList={addToWishList}
       />
     </>
   );

@@ -5,11 +5,7 @@ import nintendo from "../assets/nintendo-switch.png";
 import pc from "../assets/pc.png";
 import { NavLink } from "react-router-dom";
 
-const GameCard = ({ cart, setCart, game, getPrice, setWishlist, signIn }) => {
-  const addToCart = (game) => {
-    setCart([...cart, game]);
-  };
-
+const GameCard = ({ game, getPrice, signIn, addToWishList, addToCart }) => {
   return (
     <>
       {/* start card */}
@@ -56,7 +52,8 @@ const GameCard = ({ cart, setCart, game, getPrice, setWishlist, signIn }) => {
                 );
               })}
           </div>
-          <NavLink to={"/game"}>
+
+          <NavLink to={`/game/${game.slug}`}>
             <h2 className={styles.gameTitle}>{game.name}</h2>
           </NavLink>
           <div className={styles.cartBtnContainer}>
@@ -73,7 +70,7 @@ const GameCard = ({ cart, setCart, game, getPrice, setWishlist, signIn }) => {
               </button>
               {signIn ? (
                 <button
-                  onClick={() => setWishlist(game)}
+                  onClick={() => addToWishList(game)}
                   className={styles.cardBtn}
                 >
                   Wishlist

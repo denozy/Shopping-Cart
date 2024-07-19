@@ -8,13 +8,12 @@ import { useEffect } from "react";
 
 const GamesContainer = ({
   outletHeader,
-  cart,
-  setCart,
   sortedGames,
   loading,
   getPrice,
-  setWishlist,
   signIn,
+  addToWishList,
+  addToCart,
 }) => {
   return (
     <>
@@ -43,12 +42,11 @@ const GamesContainer = ({
             : sortedGames.map((game) => (
                 <GameCard
                   key={game.id}
-                  cart={cart}
-                  setCart={setCart}
                   game={game}
                   getPrice={getPrice}
-                  setWishlist={setWishlist}
                   signIn={signIn}
+                  addToWishList={addToWishList}
+                  addToCart={addToCart}
                 />
               ))}
         </div>

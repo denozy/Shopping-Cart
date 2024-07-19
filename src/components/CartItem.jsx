@@ -3,7 +3,14 @@ import styles from "../styles/sidebarCart.module.css";
 import heartplus from "../assets/heart_plus.png";
 import trash from "../assets/delete.png";
 
-const CartItem = ({ signIn, getPrice, deleteItem, game, setWishlist }) => {
+const CartItem = ({
+  signIn,
+  getPrice,
+  deleteItem,
+  game,
+  setWishlist,
+  addToWishList,
+}) => {
   const handleClick = () => {
     deleteItem;
   };
@@ -19,7 +26,7 @@ const CartItem = ({ signIn, getPrice, deleteItem, game, setWishlist }) => {
                   src={heartplus}
                   alt="Save to Wishlist"
                   onClick={() => {
-                    setWishlist(game);
+                    addToWishList(game);
                     deleteItem(game.id);
                   }}
                 />

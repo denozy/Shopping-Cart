@@ -34,16 +34,19 @@ const App = () => {
   });
   const [total, setTotal] = useState(0);
   const apiKey = import.meta.env.VITE_API_KEY;
-  const gameUrl = `https://api.rawg.io/api/games?key=${apiKey}&search=${term}&page_size=30`;
 
+  const platformUrl = `https://api.rawg.io/api/parent_platforms/?key=${apiKey}`;
+
+  //search for 30 games based on a search term
   useEffect(() => {
+    const gamesUrl = `https://api.rawg.io/api/games?key=${apiKey}&search=${term}&page_size=10`;
     const fetchGames = async () => {
       setLoading(true);
       try {
-        const res = await fetch(gameUrl);
+        const res = await fetch(gamesUrl);
         const data = await res.json();
-        setGames(data.results);
         console.log(data.results);
+        setGames(data.results);
       } catch (error) {
         console.log("Error fetching data", error);
       } finally {
@@ -54,6 +57,28 @@ const App = () => {
     fetchGames();
   }, [term]);
 
+  //search for 1 game based on an id
+  // useEffect(() => {
+  //   const oneGameUrl = `https://api.rawg.io/api/games/${gameId}?key=${apiKey}`;
+
+  //   const fetchGame = async () => {
+  //     setLoading(true);
+  //     try {
+  //       const res = await fetch(oneGameUrl);
+  //       const data = await res.json();
+  //       setGame(data);
+  //       console.log(data);
+  //     } catch (error) {
+  //       console.log("Error fetching data", error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+  //   if (gameId) {
+  //     fetchGame();
+  //   }
+  // }, [gameId]);
+
   //sorts games in descending order based on suggestions_count
   useEffect(() => {
     const gamesToFilter = [...games].filter((game) => {
@@ -62,7 +87,6 @@ const App = () => {
       return reviews >= 40 && added >= 5;
     });
     setFilteredGames(gamesToFilter);
-    console.log(filteredGames);
   }, [games]);
 
   //sort games from newest to oldest based on release date
@@ -97,11 +121,21 @@ const App = () => {
 
   useEffect(() => {
     localStorage.setItem("myCart", JSON.stringify(cart));
+    console.log(cart);
   }, [cart]);
 
   useEffect(() => {
     localStorage.setItem("myWishlist", JSON.stringify(wishlist));
+    console.log(wishlist);
   }, [wishlist]);
+
+  const addToWishList = (game) => {
+    setWishlist([...wishlist, game]);
+  };
+
+  const addToCart = (game) => {
+    setCart([...cart, game]);
+  };
 
   //generate a fake price for the game since rawg does not supply price data
   const getPrice = (game) => {
@@ -134,6 +168,7 @@ const App = () => {
             setSortTerm={setSortTerm}
             getPrice={getPrice}
             setWishlist={setWishlist}
+            addToWishList={addToWishList}
           />
         }
       >
@@ -141,23 +176,28 @@ const App = () => {
           index
           element={
             <HomePage
-              cart={cart}
-              setCart={setCart}
               loading={loading}
               sortedGames={sortedGames}
               outletHeader={outletHeader}
               getPrice={getPrice}
-              setWishlist={setWishlist}
               signIn={signIn}
+              addToWishList={addToWishList}
+              addToCart={addToCart}
             />
           }
         />
-        <Route path="/game" element={<GamePage />} />
+        <Route
+          path="/game/:slug"
+          element={<GamePage gamesData={games} apiKey={apiKey} />}
+        />
         <Route
           path="/account"
           element={<AccountPage signIn={signIn} setSignIn={setSignIn} />}
         />
-        <Route path="/wishlist" element={<WishlistPage />} />
+        <Route
+          path="/wishlist"
+          element={<WishlistPage wishlist={wishlist} addToCart={addToCart} />}
+        />
         <Route
           path="/checkout"
           element={<CheckoutPage total={total} setTotal={setTotal} />}
