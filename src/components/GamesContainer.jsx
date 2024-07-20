@@ -14,6 +14,7 @@ const GamesContainer = ({
   signIn,
   addToWishList,
   addToCart,
+  cart,
 }) => {
   return (
     <>
@@ -47,6 +48,7 @@ const GamesContainer = ({
                   signIn={signIn}
                   addToWishList={addToWishList}
                   addToCart={addToCart}
+                  cart={cart}
                 />
               ))}
         </div>

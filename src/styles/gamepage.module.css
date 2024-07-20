@@ -1,0 +1,110 @@
+.gamepageContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.466);
+}
+
+.gamepageContainer > header {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.gamepageContainer > header h1 {
+  text-align: left;
+}
+
+.interiorPageContainer {
+  width: 60%;
+}
+
+.gameDetails {
+  background-color: rgba(54, 54, 54, 0.603);
+}
+
+.gameImageBoxes {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.majorImg {
+  height: 400px;
+  width: auto;
+}
+
+.imgPreviewContainer {
+  display: flex;
+  overflow: hidden;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.previewImg {
+  height: 50px;
+  width: auto;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.previewImg:hover {
+  border: 1px solid red;
+}
+
+.gameCard {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.gameTitle {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.cardInfoContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.cardInfo {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+.cardInfoText {
+  margin: 5px 0;
+}
+
+.extraContentContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+  background-color: var(--gamepage-accent-color);
+  padding: 2rem 0;
+}
+
+.gameContentTop {
+  grid-column: span 2;
+  grid-row: 1;
+}
+
+.gameContentBottom {
+  grid-column: span 2;
+  grid-row: 2;
+}
+
+.gameContentSide {
+  grid-column: 3;
+  grid-row: span 2;
+}
+
+.cardInfoContainer > hr {
+  width: 100%;
+}

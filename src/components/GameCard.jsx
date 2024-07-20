@@ -5,16 +5,25 @@ import nintendo from "../assets/nintendo-switch.png";
 import pc from "../assets/pc.png";
 import { NavLink } from "react-router-dom";
 
-const GameCard = ({ game, getPrice, signIn, addToWishList, addToCart }) => {
+const GameCard = ({
+  game,
+  getPrice,
+  signIn,
+  addToWishList,
+  addToCart,
+  cart,
+}) => {
   return (
     <>
       {/* start card */}
       <div className={styles.gameCard}>
-        <img
-          className={styles.gameImg}
-          src={game.background_image}
-          alt={game.name}
-        />
+        <div className={styles.gameImgContainer}>
+          <img
+            className={styles.gameImg}
+            src={game.background_image}
+            alt={game.name}
+          />
+        </div>
         <div className={styles.gameDetailsContainer}>
           <div className={styles.consoleIconContainer}>
             {game.parent_platforms &&
@@ -61,13 +70,17 @@ const GameCard = ({ game, getPrice, signIn, addToWishList, addToCart }) => {
               <p>Price: {getPrice(game)}</p>
             </div>
             <div className={styles.cartBtns}>
-              {" "}
-              <button
-                onClick={() => addToCart(game)}
-                className={styles.cardBtn}
-              >
-                Cart
-              </button>
+              {cart.some((item) => item.id === game.id) ? (
+                <button className={styles.cardBtnAdded}>Added</button>
+              ) : (
+                <button
+                  onClick={() => addToCart(game)}
+                  className={styles.cardBtn}
+                >
+                  Cart
+                </button>
+              )}
+
               {signIn ? (
                 <button
                   onClick={() => addToWishList(game)}

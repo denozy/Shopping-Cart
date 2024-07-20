@@ -53,15 +53,10 @@ const SidebarCart = ({
   const grandTotal = total + tax;
 
   const deleteItem = (id) => {
-    console.log(id);
     setCart((current) => {
       return current.filter((game) => game.id !== id);
     });
   };
-
-  // useEffect(() => {
-  //   console.log("Cart updated:", cart);
-  // }, [cart]);
 
   return (
     <div

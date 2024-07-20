@@ -8,6 +8,7 @@ const HomePage = ({
   signIn,
   addToWishList,
   addToCart,
+  cart,
 }) => {
   return (
     <>
@@ -19,6 +20,7 @@ const HomePage = ({
         signIn={signIn}
         addToWishList={addToWishList}
         addToCart={addToCart}
+        cart={cart}
       />
     </>
   );

@@ -10,6 +10,7 @@
   --logo-color: whitesmoke;
   --gradient-color-1: rgba(0, 0, 0, 1);
   --gradient-color-2: #390b5c;
+  --gamepage-accent-color: #390b5c62;
   --gradient-color-3: #3c7410;
   --gradient-color-4: #020024;
   --accent-color-1: #eb8d12f7;
@@ -49,6 +50,12 @@ body {
 }
 button {
   font-family: Roboto, sans-serif, Arial, Geneva, Verdana;
+  font-size: var(--fs-small);
+  border: none;
+  cursor: pointer;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  color: whitesmoke;
 }
 
 #root {

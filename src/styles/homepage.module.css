@@ -11,6 +11,7 @@
   flex-wrap: wrap;
   text-wrap: wrap;
   z-index: 100;
+  width: 100%;
 }
 
 @media (max-width: 768px) {

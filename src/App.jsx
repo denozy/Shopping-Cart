@@ -14,7 +14,6 @@ import WishlistPage from "./pages/WishlistPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import GamePage from "./pages/GamePage";
 import ErrorModal from "./components/ErrorModal";
-import PlatformPage from "./pages/PlatformPage";
 
 const App = () => {
   const [games, setGames] = useState([]);
@@ -39,11 +38,9 @@ const App = () => {
 
   const apiKey = import.meta.env.VITE_API_KEY;
 
-  const platformUrl = `https://api.rawg.io/api/parent_platforms/?key=${apiKey}`;
-
   //search for x games based on a search term
   useEffect(() => {
-    const gamesUrl = `https://api.rawg.io/api/games?key=${apiKey}&search=${term}&page_size=15`;
+    const gamesUrl = `https://api.rawg.io/api/games?key=${apiKey}&search=${term}&search_precise=true&page_size=30`;
     const fetchGames = async () => {
       setLoading(true);
       try {
@@ -66,7 +63,7 @@ const App = () => {
     const gamesToFilter = [...games].filter((game) => {
       const added = parseInt(game.added, 10);
       const reviews = parseInt(game.reviews_count, 10);
-      return reviews >= 40 && added >= 5;
+      return reviews >= 0 && added >= 0;
     });
     setFilteredGames(gamesToFilter);
   }, [games]);
@@ -195,6 +192,7 @@ const App = () => {
               signIn={signIn}
               addToWishList={addToWishList}
               addToCart={addToCart}
+              cart={cart}
             />
           }
         />
@@ -202,10 +200,10 @@ const App = () => {
           path="/game/:slug"
           element={<GamePage gamesData={games} apiKey={apiKey} />}
         />
-        <Route
+        {/* <Route
           path="/platforms/:platform"
           element={<PlatformPage apiKey={apiKey} />}
-        />
+        /> */}
         <Route
           path="/account"
           element={<AccountPage signIn={signIn} setSignIn={setSignIn} />}
