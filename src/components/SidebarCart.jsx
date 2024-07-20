@@ -45,7 +45,8 @@ const SidebarCart = ({
   useEffect(() => {
     const total = cart
       .map(getPrice)
-      .reduce((acc, price) => acc + parseFloat(price), 0);
+      .reduce((acc, price) => acc + parseFloat(price), 0)
+      .toFixed(2);
     setTotal(total);
   }, [cart]);
 
@@ -66,7 +67,6 @@ const SidebarCart = ({
       }`}
     >
       <header className={styles.cartHeader}>
-        {" "}
         <div className={styles.subtotalContainer}>
           <p>Subtotal:</p>
           <p>{total}</p>

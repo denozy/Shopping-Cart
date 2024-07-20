@@ -156,7 +156,7 @@ const App = () => {
       decimalPoints.length;
 
     const adjustedPrice = Math.floor(scaledPrice) + decimalPoints[index];
-
+    if (isNaN(adjustedPrice)) return 0.99;
     return adjustedPrice.toFixed(2);
   };
 
