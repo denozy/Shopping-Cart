@@ -3,5 +3,5 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/Shopping-Cart/",
+  base: "/Shopping-Cart/", // Update to match your repository name
 });
