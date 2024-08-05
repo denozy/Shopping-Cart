@@ -9,7 +9,6 @@ const DropdownMenu = () => {
   const handleOptionClick = (option) => {
     setSelectedOption(option);
     setIsOpen(false);
-    console.log(`Selected option: ${option}`);
   };
 
   return (

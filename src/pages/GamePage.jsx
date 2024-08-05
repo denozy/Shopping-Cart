@@ -19,7 +19,6 @@ const GamePage = ({ gamesData, apiKey }) => {
         const res = await fetch(gameUrl);
         const data = await res.json();
         setGame(data);
-        console.log(data);
       } catch (error) {
         console.log("Error fetching game data", error);
       } finally {
@@ -37,7 +36,6 @@ const GamePage = ({ gamesData, apiKey }) => {
     const filteredGame = gamesData.find((data) => data.id === game.id);
     if (filteredGame) {
       setGameData(filteredGame);
-      console.log(filteredGame);
     }
   }, [game, gamesData]);
 
