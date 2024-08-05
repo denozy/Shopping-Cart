@@ -7,10 +7,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Build artifacts
 node_modules
 dist
 dist-ssr
-*.local
 
 # Editor directories and files
 .vscode/*
@@ -23,6 +23,11 @@ dist-ssr
 *.sln
 *.sw?
 *.env
+
+# Local configuration files
+*.local
+
+# Personal notes (include if you want them tracked)
 notes.md
 platformpage.md
 updates.md
