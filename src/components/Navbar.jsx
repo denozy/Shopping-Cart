@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import styles from "../styles/navbar.module.css";
 import { TbShoppingCartPlus } from "react-icons/tb";
@@ -15,6 +15,8 @@ const Navbar = ({
   signIn,
   setTerm,
 }) => {
+  const navigate = useNavigate();
+
   const loggedIn = ({ signIn }) =>
     signIn ? styles.isSignedIn : styles.isNotSignedIn;
   const linkClass = ({ isActive }) =>

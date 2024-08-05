@@ -46,7 +46,6 @@ const App = () => {
       try {
         const res = await fetch(gamesUrl);
         const data = await res.json();
-        console.log(data.results);
         setGames(data.results);
       } catch (error) {
         console.log("Error fetching data", error);
@@ -101,13 +100,11 @@ const App = () => {
   //local storage for cart
   useEffect(() => {
     localStorage.setItem("myCart", JSON.stringify(cart));
-    console.log(cart);
   }, [cart]);
 
   //local storage for wishlist
   useEffect(() => {
     localStorage.setItem("myWishlist", JSON.stringify(wishlist));
-    console.log(wishlist);
   }, [wishlist]);
 
   //add to wishlist
