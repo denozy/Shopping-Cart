@@ -14,6 +14,7 @@ import WishlistPage from "./pages/WishlistPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import GamePage from "./pages/GamePage";
 import ErrorModal from "./components/ErrorModal";
+import WelcomePage from "./pages/WelcomePage";
 
 const App = () => {
   const [games, setGames] = useState([]);
@@ -213,6 +214,7 @@ const App = () => {
           path="/checkout"
           element={<CheckoutPage total={total} setTotal={setTotal} />}
         />
+        <Route path="/Shopping-Cart" element={<WelcomePage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     )
